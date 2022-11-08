@@ -33,7 +33,12 @@ export default function Navbar() {
       </ul>
       <ul className="navbar-nav  mb-2 mb-lg-0">
         <li className="nav-item">
-         
+                <i className="fab fa-facebook"></i>
+                <i className="fab fa-twitter"></i>
+                <i className="fab fa-instagram"></i>
+                <i className="fab fa-spotify"></i>
+                <i className="fab fa-soundcloud"></i>
+
         </li>
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="register">Register</Link>
