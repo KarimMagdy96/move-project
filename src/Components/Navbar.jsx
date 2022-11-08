@@ -65,8 +65,8 @@ export default function Navbar() {
               </li>
             </ul>
             <ul className="navbar-nav d-flex mb-2 mb-lg-0">
-              <li className="nav-item d-flex align-items-center">
-                <i className="fab mx-2 fa-facebook"></i>
+              <li className="nav-item d-flex order-last order-lg-first align-items-center">
+                <i className="fab me-2 fa-facebook"></i>
                 <i className="fab mx-2 fa-twitter"></i>
                 <i className="fab mx-2 fa-instagram"></i>
                 <i className="fab mx-2 fa-spotify"></i>
