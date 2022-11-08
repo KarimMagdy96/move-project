@@ -8,20 +8,23 @@ export default function Register() {
         email: '',
         password:''
     })
-    function grtuserdata(e) {
+    function getUserData(e) {
         let myuser = { ...user }
         myuser[e.target.name] = e.target.value
         setusers(myuser)
     }
-
+    function sumbitForm(e) {
+        e.preventDefault();
+        console.log(user)
+    }
   return (
     <>
       <div className=" w-75 mx-auto mt-3">
         <h2>Register Now</h2>
-        <form>
+        <form onSubmit={sumbitForm}>
           <label htmlFor="first_name">First Name:</label>
           <input
-            onChange={grtuserdata}
+            onChange={getUserData}
             type="text"
             id="first_name"
             name="first_name"
@@ -30,7 +33,7 @@ export default function Register() {
 
           <label htmlFor="last-name">Last Name:</label>
           <input
-            onChange={grtuserdata}
+            onChange={getUserData}
             type="text"
             id="last-name"
             name="last-name"
@@ -38,7 +41,7 @@ export default function Register() {
           />
           <label htmlFor="age">Age:</label>
           <input
-            onChange={grtuserdata}
+            onChange={getUserData}
             type="number"
             id="age"
             name="age"
@@ -47,7 +50,7 @@ export default function Register() {
 
           <label htmlFor="email">Email:</label>
           <input
-            onChange={grtuserdata}
+            onChange={getUserData}
             type="email"
             id="email"
             name="email"
@@ -56,7 +59,7 @@ export default function Register() {
 
           <label htmlFor="password">Password:</label>
           <input
-            onChange={grtuserdata}
+            onChange={getUserData}
             type="password"
             id="password"
             name="password"
