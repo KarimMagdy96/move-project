@@ -7,7 +7,7 @@ export default function Register() {
         <h2>Register Now</h2>
         <form>
           <label htmlFor="first_name">First Name:</label>
-          <input type="text" id="first_name" name="first_name" className=' form-control' />
+          <input type="text" id="first_name" name="first_name" className=' form-control mb-2' />
         </form>
       </div>
     </>
