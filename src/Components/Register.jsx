@@ -28,7 +28,19 @@ export default function Register() {
     } else {
       seterror(data.message);
     }
-  }
+    }
+    function validateRegisterForm() {
+        let validator = Joi.object({
+            first_name:Joi.string().alphanum().min(3).max(30).required(),
+            last_name: Joi.string().alphanum().min(16).max(80).required(),
+            age: Joi.number().min(3).max(30).required(),
+            email: Joi.email().required(),
+            password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
+
+            
+        })
+        return validator.validate(user)
+    }
   return (
     <>
       <div className=" w-75 mx-auto mt-3">
