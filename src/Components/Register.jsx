@@ -17,7 +17,8 @@ export default function Register() {
     setusers(myuser);
   }
   async function sumbitForm(e) {
-    e.preventDefault();
+      e.preventDefault();
+      let validInput = validateRegisterForm();
     let { data } = await Axios.post(
       "https://route-egypt-api.herokuapp.com/signup",
       user
@@ -31,15 +32,18 @@ export default function Register() {
     }
     function validateRegisterForm() {
         let validator = Joi.object({
-            first_name:Joi.string().alphanum().min(3).max(30).required(),
-            last_name: Joi.string().alphanum().min(16).max(80).required(),
-            age: Joi.number().min(3).max(30).required(),
-            email: Joi.email().required(),
-            password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
-
-            
-        })
-        return validator.validate(user)
+          first_name: Joi.string().alphanum().min(3).max(30).required(),
+          last_name: Joi.string().alphanum().min(16).max(80).required(),
+          age: Joi.number().min(3).max(30).required(),
+          email: Joi.email({
+            minDomainSegments: 2,
+            tlds: { allow: ["com", "net"] },
+          }).required(),
+          password: Joi.string()
+            .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
+            .required(),
+        });
+        return validator.validate(user,{abortEarly:false})
     }
   return (
     <>
