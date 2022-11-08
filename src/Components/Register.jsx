@@ -1,35 +1,46 @@
-import  Axios  from "axios";
+import Axios from "axios";
 import React, { useState } from "react";
 export default function Register() {
-    const [error, seterror] = useState('')
-    const [user, setusers] = useState({
-        first_name: '',
-        last_name: '',
-        age: 0,
-        email: '',
-        password:''
-    })
-    function getUserData(e) {
-        let myuser = { ...user }
-        myuser[e.target.name] = e.target.value
-        setusers(myuser)
+  const [error, seterror] = useState("");
+  const [succuss, setsuccuss] = useState("");
+  const [user, setusers] = useState({
+    first_name: "",
+    last_name: "",
+    age: 0,
+    email: "",
+    password: "",
+  });
+  function getUserData(e) {
+    let myuser = { ...user };
+    myuser[e.target.name] = e.target.value;
+    setusers(myuser);
+  }
+  async function sumbitForm(e) {
+    e.preventDefault();
+    let { data } = await Axios.post(
+      "https://route-egypt-api.herokuapp.com/signup",
+      user
+    );
+    if (data.message === "success") {
+      setsuccuss(data.message);
+      //nav to home
+    } else {
+      seterror(data.message);
     }
-   async function sumbitForm(e) {
-        e.preventDefault();
-       let {data} = await Axios.post('https://route-egypt-api.herokuapp.com/signup', user)
-       if (data.message==='success') {
-           //nav to home
-       } else {
-           seterror(data.message)
-       }
-    }
+  }
   return (
     <>
       <div className=" w-75 mx-auto mt-3">
-              <h2 className="mb-5">Register Now</h2>
-              
-              <form onSubmit={sumbitForm}>
-                  {error.length > 0 ? <div className=" alert alert-danger">{error}</div>:""}
+        <h2 className="mb-5">Register Now</h2>
+
+        <form onSubmit={sumbitForm}>
+          {error.length > 0 ? (
+            <div className=" alert alert-danger">{error}</div>
+          ) : succuss.length > 0 ? (
+            <div className=" alert alert-success">{succuss}</div>
+          ) : (
+            ""
+          )}
           <label htmlFor="first_name">First Name:</label>
           <input
             onChange={getUserData}
