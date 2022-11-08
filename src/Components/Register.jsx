@@ -43,7 +43,8 @@ export default function Register() {
             id="password"
             name="password"
             className=" form-control mb-2"
-          />
+                  />
+                  <button className=" btn btn-info">Register</button>
         </form>
       </div>
     </>
