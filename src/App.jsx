@@ -27,7 +27,7 @@ function App() {
         <Route path='login'element={<Login/>} /> 
         <Route path='move' element={<Move />} /> 
         <Route path='about' element={<About />} /> 
-        <Route path='contacts' element={<Move />} /> 
+        <Route path='contacts' element={<Contacts />} /> 
         <Route path='*' element={<Notfound/>}/>
       </Routes>
       <Footer/>
