@@ -39,21 +39,6 @@ export default function Navbar() {
           <Link className="nav-link active" aria-current="page" to="home">Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="tv">TV</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="people">People</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="move">Move</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="about">about</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="contacts">Contacts</Link>
-        </li>
-        <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="login">Login</Link>
         </li>
         
