@@ -16,7 +16,7 @@ export default function Register() {
 
   return (
     <>
-      <div className=" w-75 mx-auto">
+      <div className=" w-75 mx-auto mt-3">
         <h2>Register Now</h2>
         <form>
           <label htmlFor="first_name">First Name:</label>
