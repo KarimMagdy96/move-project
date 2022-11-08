@@ -8,7 +8,10 @@ export default function Register() {
         email: '',
         password:''
     })
-    
+    function grtuserdata(e) {
+        let myuser = { ...user }
+        e.tar
+    }
 
   return (
     <>
@@ -17,6 +20,7 @@ export default function Register() {
         <form>
           <label htmlFor="first_name">First Name:</label>
           <input
+            onChange={grtuserdata}
             type="text"
             id="first_name"
             name="first_name"
@@ -52,8 +56,10 @@ export default function Register() {
             id="password"
             name="password"
             className=" form-control mb-2"
-                  />
-                  <button type="sumbit" className=" btn btn-outline-info">Register</button>
+          />
+          <button type="sumbit" className=" btn btn-outline-info">
+            Register
+          </button>
         </form>
       </div>
     </>
