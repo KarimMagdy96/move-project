@@ -64,7 +64,7 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav  mb-2 mb-lg-0">
+            <ul className="navbar-nav d-flex mb-2 mb-lg-0">
               <li className="nav-item d-flex align-items-center">
                 <i className="fab mx-2 fa-facebook"></i>
                 <i className="fab mx-2 fa-twitter"></i>
