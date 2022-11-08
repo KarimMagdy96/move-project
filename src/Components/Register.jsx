@@ -1,4 +1,5 @@
 import Axios from "axios";
+import Joi from "joi";
 import React, { useState } from "react";
 export default function Register() {
   const [error, seterror] = useState("");
