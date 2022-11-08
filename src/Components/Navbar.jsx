@@ -24,10 +24,10 @@ export default function Navbar() {
           <Link className="nav-link active" aria-current="page" to="move">Move</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="about" to="move">about</Link>
+          <Link className="nav-link active" aria-current="page" to="about">about</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="contacts" to="move">Contacts</Link>
+          <Link className="nav-link active" aria-current="page" to="contacts">Contacts</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="login">Login</Link>
