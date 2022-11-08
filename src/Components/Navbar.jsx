@@ -39,7 +39,7 @@ export default function Navbar() {
           <Link className="nav-link active" aria-current="page" to="register">Register</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="login">Login</Link>
+          <Link className="nav-link active" aria-current="page" to="login">LogIn</Link>
         </li>
         
       </ul>
