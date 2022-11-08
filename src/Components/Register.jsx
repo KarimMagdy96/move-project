@@ -1,6 +1,7 @@
 import  Axios  from "axios";
 import React, { useState } from "react";
 export default function Register() {
+    const [error, seterror] = useState('')
     const [user, setusers] = useState({
         first_name: '',
         last_name: '',
@@ -15,14 +16,20 @@ export default function Register() {
     }
    async function sumbitForm(e) {
         e.preventDefault();
-       let response = await Axios.post('https://route-egypt-api.herokuapp.com/signup', user)
-       console.log(response)
+       let {data} = await Axios.post('https://route-egypt-api.herokuapp.com/signup', user)
+       if (data.message==='success') {
+           //nav to home
+       } else {
+           seterror(data.message)
+       }
     }
   return (
     <>
       <div className=" w-75 mx-auto mt-3">
-        <h2>Register Now</h2>
-        <form onSubmit={sumbitForm}>
+              <h2 className="mb-5">Register Now</h2>
+              
+              <form onSubmit={sumbitForm}>
+                  {error.length > 0 ? <div className=" alert alert-danger">{error}</div>:""}
           <label htmlFor="first_name">First Name:</label>
           <input
             onChange={getUserData}
