@@ -20,7 +20,9 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
+      <div className=' container-fluid'>
+
       <Routes>
         <Route path='tv' element={<Tv />} /> 
         <Route path='people' element={< People />} /> 
@@ -33,6 +35,7 @@ function App() {
         <Route path='logout' element={<Logout />} />
         <Route path='*' element={<Notfound/>}/>
       </Routes>
+      </div>
       <Footer/>
     </>
   )
