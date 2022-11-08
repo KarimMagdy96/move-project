@@ -21,7 +21,7 @@ export default function Register() {
       e.preventDefault();
       let validInput = validateRegisterForm();
       if (validInput.error) {
-        seterrorList(validInput.error)
+          seterrorList(validInput.error.details)
       }
       else {
           
@@ -55,6 +55,7 @@ export default function Register() {
         <h2 className="mb-5">Register Now</h2>
 
         <form onSubmit={sumbitForm}>
+          {errorList.map()}
           {error.length > 0 ? (
             <div className=" alert alert-danger">{error}</div>
           ) : succuss.length > 0 ? (
