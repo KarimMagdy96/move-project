@@ -19,7 +19,7 @@ export default function Register() {
                   <input type="password" id="password" name="password" className=' form-control mb-2' />
                   
           <label htmlFor="age">Age:</label>
-          <input type="text" id="age" name="age" className=' form-control mb-2' />
+          <input type="number" id="age" name="age" className=' form-control mb-2' />
         </form>
       </div>
     </>
