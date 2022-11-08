@@ -3,6 +3,7 @@ import Joi from "joi";
 import React, { useState } from "react";
 export default function Register() {
   const [error, seterror] = useState("");
+  const [errorList, seterrorList] = useState([]);
   const [succuss, setsuccuss] = useState("");
   const [user, setusers] = useState({
     first_name: "",
@@ -19,26 +20,29 @@ export default function Register() {
   async function sumbitForm(e) {
       e.preventDefault();
       let validInput = validateRegisterForm();
-    let { data } = await Axios.post(
-      "https://route-egypt-api.herokuapp.com/signup",
-      user
-    );
-    if (data.message === "success") {
-      setsuccuss(data.message);
-      //nav to home
-    } else {
-      seterror(data.message);
-    }
+      if (validInput.error) {
+        seterrorList(validInput.error)
+      }
+      else {
+          
+          let { data } = await Axios.post(
+            "https://route-egypt-api.herokuapp.com/signup",
+            user
+          );
+          if (data.message === "success") {
+            setsuccuss(data.message);
+            //nav to home
+          } else {
+            seterror(data.message);
+          }
+      }
     }
     function validateRegisterForm() {
         let validator = Joi.object({
           first_name: Joi.string().alphanum().min(3).max(30).required(),
           last_name: Joi.string().alphanum().min(16).max(80).required(),
           age: Joi.number().min(3).max(30).required(),
-          email: Joi.email({
-            minDomainSegments: 2,
-            tlds: { allow: ["com", "net"] },
-          }).required(),
+          email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }).required(),
           password: Joi.string()
             .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
             .required(),
