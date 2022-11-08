@@ -30,6 +30,7 @@ function App() {
         <Route path='about' element={<About />} /> 
         <Route path='contacts' element={<Contacts />} />
         <Route path='register' element={<Register />} />
+        <Route path='logout' element={<Logout />} />
         <Route path='*' element={<Notfound/>}/>
       </Routes>
       <Footer/>
