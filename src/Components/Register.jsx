@@ -10,7 +10,8 @@ export default function Register() {
     })
     function grtuserdata(e) {
         let myuser = { ...user }
-        e.tar
+        myuser.first_name = e.target.value
+        setusers(myuser)
     }
 
   return (
