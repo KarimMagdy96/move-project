@@ -29,9 +29,6 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="contacts">Contacts</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="login">Login</Link>
-        </li>
         
       </ul>
       <ul className="navbar-nav  mb-2 mb-lg-0">
