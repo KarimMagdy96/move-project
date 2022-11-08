@@ -1,6 +1,15 @@
-import React from "react";
-
+import React, { useState } from "react";
 export default function Register() {
+
+    const [user, setusers] = useState({
+        first_name: '',
+        last_name: '',
+        age: 0,
+        email: '',
+        password:''
+    })
+    
+
   return (
     <>
       <div className=" w-75 mx-auto">
