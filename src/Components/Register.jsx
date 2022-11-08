@@ -44,7 +44,7 @@ export default function Register() {
             name="password"
             className=" form-control mb-2"
                   />
-                  <button className=" btn btn-info">Register</button>
+                  <button type="sumbit" className=" btn btn-outline-info">Register</button>
         </form>
       </div>
     </>
