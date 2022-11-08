@@ -10,3 +10,6 @@ body{
     background-color: var(--bg-main);
     color: var(--main-color);
 }
+input{
+    background-color: transparent;
+}
