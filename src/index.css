@@ -11,6 +11,6 @@ body{
     color: var(--main-color);
 }
 input{
-    background-color: transparent ;
+    background-color: transparent !important;
     color: var(--main-color);
 }
