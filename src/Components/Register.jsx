@@ -10,7 +10,7 @@ export default function Register() {
     })
     function grtuserdata(e) {
         let myuser = { ...user }
-        myuser.first_name = e.target.value
+        myuser[e.target.name] = e.target.value
         setusers(myuser)
     }
 
@@ -30,6 +30,7 @@ export default function Register() {
 
           <label htmlFor="last-name">Last Name:</label>
           <input
+            onChange={grtuserdata}
             type="text"
             id="last-name"
             name="last-name"
@@ -37,6 +38,7 @@ export default function Register() {
           />
           <label htmlFor="age">Age:</label>
           <input
+            onChange={grtuserdata}
             type="number"
             id="age"
             name="age"
@@ -45,6 +47,7 @@ export default function Register() {
 
           <label htmlFor="email">Email:</label>
           <input
+            onChange={grtuserdata}
             type="email"
             id="email"
             name="email"
@@ -53,6 +56,7 @@ export default function Register() {
 
           <label htmlFor="password">Password:</label>
           <input
+            onChange={grtuserdata}
             type="password"
             id="password"
             name="password"
