@@ -1,6 +1,6 @@
+import  Axios  from "axios";
 import React, { useState } from "react";
 export default function Register() {
-
     const [user, setusers] = useState({
         first_name: '',
         last_name: '',
@@ -13,9 +13,10 @@ export default function Register() {
         myuser[e.target.name] = e.target.value
         setusers(myuser)
     }
-    function sumbitForm(e) {
+   async function sumbitForm(e) {
         e.preventDefault();
-        console.log(user)
+       let response = await Axios.post('https://route-egypt-api.herokuapp.com/signup', user)
+       console.log(response)
     }
   return (
     <>
