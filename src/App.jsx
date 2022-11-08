@@ -12,6 +12,7 @@ import Navbar from './Components/Navbar';
 import About from './Components/About';
 import Contacts from './Components/Contacts';
 import Register from './Components/Register';
+import Logout from './Components/Logout';
 
 
 function App() {
