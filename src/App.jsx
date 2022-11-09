@@ -13,7 +13,7 @@ import About from "./Components/About";
 import Contacts from "./Components/Contacts";
 import Register from "./Components/Register";
 import Logout from "./Components/Logout";
-
+import jwtDecode from "jwt-decode";
 function App() {
   return (
     <>
