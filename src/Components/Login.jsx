@@ -13,6 +13,8 @@ export default function Login({ saveUserData }) {
     email: "",
     password: "",
   });
+
+  
   function getUserData(e) {
     let myuser = { ...user };
     myuser[e.target.name] = e.target.value;
