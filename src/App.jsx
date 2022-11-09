@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Tv from "./Components/Tv";
 import People from "./Components/People";
 import Notfound from "./Components/Notfound";
@@ -14,8 +14,21 @@ import Contacts from "./Components/Contacts";
 import Register from "./Components/Register";
 import Logout from "./Components/Logout";
 import jwtDecode from "jwt-decode";
+
 function App() {
   const [userdata, setUserData] = useState(null);
+  let navigator = useNavigate();
+useEffect(() => {
+  if (localStorage.getItem('token')) {
+    saveUserData();
+  }
+}, [])
+  function logOut() {
+    setUserData(null)
+    localStorage.removeItem("token");
+    navigator('/login')
+ 
+ }
 
   function ProtectedRoute(props) {
     if (localStorage.getItem("token") === null) {
@@ -34,7 +47,7 @@ function App() {
 
   return (
     <>
-      <Navbar userdata={userdata} />
+      <Navbar userdata={userdata} logOut={logOut} />
       <div className=" container-fluid">
         <Routes>
           <Route

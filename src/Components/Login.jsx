@@ -2,7 +2,6 @@ import Axios from "axios";
 import Joi from "joi";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 export default function Login({ saveUserData }) {
   const [error, seterror] = useState("");
   const [errorList, seterrorList] = useState([]);

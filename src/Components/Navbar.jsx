@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default function Navbar({ userdata }) {
+export default function Navbar({ userdata, logOut }) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
@@ -92,7 +92,11 @@ export default function Navbar({ userdata }) {
               </li>
               {userdata ? (
                 <li className="nav-item">
-                  <span className="nav-link active" aria-current="page">
+                  <span
+                    onClick={() => logOut()}
+                    className="nav-link active"
+                    aria-current="page"
+                  >
                     Logout
                   </span>
                 </li>
