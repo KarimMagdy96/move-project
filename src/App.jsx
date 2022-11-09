@@ -17,7 +17,8 @@ import jwtDecode from "jwt-decode";
 function App() {
 
   function saveUserData() {
-  let encodedToken = localStorage.setItem("token");
+    let encodedToken = localStorage.setItem("token");
+    jwtDecode(encodedToken);
 }
 
 
