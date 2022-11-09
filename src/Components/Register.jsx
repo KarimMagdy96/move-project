@@ -64,9 +64,13 @@ export default function Register() {
           <h2 className="mb-5">Register Now</h2>
 
           <form onSubmit={sumbitForm}>
-            {errorList.map((error) => (
-              <div className=" alert alert-danger">{error.message}</div>
-            ))}
+            {errorList.map((error,i) =>
+              i == 4 ? (
+                <div className=" alert alert-danger">Password Invalid</div>
+              ) : (
+                <div className=" alert alert-danger">{error.message}</div>
+              )
+            )}
             {error.length > 0 ? (
               <div className=" alert alert-danger">{error}</div>
             ) : succuss.length > 0 ? (
