@@ -27,7 +27,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar userdata={userdata} />
       <div className=" container-fluid">
         <Routes>
           <Route path="tv" element={<Tv />} />
