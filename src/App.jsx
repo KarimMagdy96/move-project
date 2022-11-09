@@ -15,10 +15,11 @@ import Register from "./Components/Register";
 import Logout from "./Components/Logout";
 import jwtDecode from "jwt-decode";
 function App() {
-
+const [userdata, setUserData] = useState(null)
   function saveUserData() {
     let encodedToken = localStorage.setItem("token");
-    let decodedToken= jwtDecode(encodedToken);
+    let decodedToken = jwtDecode(encodedToken);
+    setUserData(decodedToken);
 }
 
 
