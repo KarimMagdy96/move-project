@@ -15,6 +15,12 @@ import Register from "./Components/Register";
 import Logout from "./Components/Logout";
 import jwtDecode from "jwt-decode";
 function App() {
+
+  function saveUserData() {
+  let encodedToken = localStorage.setItem("token");
+}
+
+
   return (
     <>
       <Navbar />
