@@ -18,7 +18,6 @@ function App() {
   const [userdata, setUserData] = useState(null)
   
   function saveUserData() {
-    console.log('helo')
     let encodedToken = localStorage.getItem("token");
     let decodedToken = jwtDecode(encodedToken);
     setUserData(decodedToken);

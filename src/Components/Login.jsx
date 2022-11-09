@@ -18,8 +18,7 @@ export default function Login({ saveUserData }) {
   function getUserData(e) {
     let myuser = { ...user };
     myuser[e.target.name] = e.target.value;
-    saveUserData();
-    setusers(myuser);
+        setusers(myuser);
   }
   async function sumbitForm(e) {
     e.preventDefault();
@@ -37,6 +36,7 @@ export default function Login({ saveUserData }) {
         setsuccuss(data.message);
         setIsLoading(false);
         localStorage.setItem("token", data.token);
+        saveUserData();
         navigate("/home");
         //nav to home
       } else {
