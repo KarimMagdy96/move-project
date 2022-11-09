@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,Navigate } from "react-router-dom";
 import Tv from "./Components/Tv";
 import People from "./Components/People";
 import Notfound from "./Components/Notfound";
@@ -16,7 +16,14 @@ import Logout from "./Components/Logout";
 import jwtDecode from "jwt-decode";
 function App() {
   const [userdata, setUserData] = useState(null)
-  
+  function protectedRoutes() {
+    if (localStorage.getItem("token") === null) {
+      //nav to home
+    }
+    else {
+      //nav where he want to go 
+    }
+  }
   function saveUserData() {
     let encodedToken = localStorage.getItem("token");
     let decodedToken = jwtDecode(encodedToken);
