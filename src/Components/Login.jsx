@@ -59,9 +59,13 @@ export default function Login() {
         <h2 className="mb-5">Login</h2>
 
         <form onSubmit={sumbitForm}>
-          {errorList.map((error,i) => (
-           i==1?<div className=" alert alert-danger">Password Invalid</div> :<div className=" alert alert-danger">{error.message}</div>
-          ))}
+          {errorList.map((error, i) =>
+            i == 1 ? (
+              <div className=" alert alert-danger">Password Invalid</div>
+            ) : (
+              <div className=" alert alert-danger">{error.message}</div>
+            )
+          )}
           {error.length > 0 ? (
             <div className=" alert alert-danger">{error}</div>
           ) : succuss.length > 0 ? (
@@ -88,7 +92,7 @@ export default function Login() {
           />
           <button type="sumbit" className=" btn btn-outline-info">
             {isLodaing === true ? (
-              <i className="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse"></i>
+              <i className="fa-solid fa-spinner fa-spin-pulse fa-spin"></i>
             ) : (
               "Login"
             )}
