@@ -3,7 +3,7 @@ import Joi from "joi";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ saveUserData }) {
   const [error, seterror] = useState("");
   const [errorList, seterrorList] = useState([]);
   const [isLodaing, setIsLoading] = useState(false);
@@ -16,6 +16,7 @@ export default function Login() {
   function getUserData(e) {
     let myuser = { ...user };
     myuser[e.target.name] = e.target.value;
+    saveUserData();
     setusers(myuser);
   }
   async function sumbitForm(e) {
@@ -33,7 +34,7 @@ export default function Login() {
       if (data.message === "success") {
         setsuccuss(data.message);
         setIsLoading(false);
-        localStorage.setItem('token',data.token)
+        localStorage.setItem("token", data.token);
         navigate("/home");
         //nav to home
       } else {
