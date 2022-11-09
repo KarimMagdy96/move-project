@@ -3,6 +3,12 @@ import Joi from "joi";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+
+//first component my app will strat from 
+
+
+
 export default function Register() {
     const [error, seterror] = useState("");
     const [errorList, seterrorList] = useState([]);
@@ -60,6 +66,15 @@ export default function Register() {
     }
     return (
       <>
+
+        //1- form to register user data on each change will call
+        /**get user data function**
+         *  get user data :
+         *      1- takes deep copy of data from usestate that i already make it object will dummy data.
+         *       2- data will be saved by this function with simple approach i make the name is same as key and assign th value to it so each time i will press on e.target it will save in defrant key .
+         *       3-
+         */
+        
         <div className=" w-75 mx-auto mt-3">
           <h2 className="mb-5">Register Now</h2>
 
