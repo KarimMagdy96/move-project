@@ -53,7 +53,8 @@ function App() {
 
     <>
       <Navbar userdata={userdata} logOut={logOut} />
-      <div className=" container">
+
+      <div className="">
         <Routes>
           <Route
             path=""

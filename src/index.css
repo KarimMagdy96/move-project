@@ -37,3 +37,21 @@ a:hover{
   text-decoration: none;
   color: #131722;
 }
+.hero{
+  background-color: rebeccapurple;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.imge{
+  width: 100%;
+  height: 100vh;
+ 
+}
+.cte{
+  color: white;
+  margin-left: 100px;
+}
+.des{
+top:30%
+}
