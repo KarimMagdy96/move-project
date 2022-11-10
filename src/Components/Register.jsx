@@ -86,9 +86,9 @@ export default function Register() {
 
     //3- then i will push this object to --user array at use state.
 
-//------------------------------------------------------------------
-    
-// 2- on submit
+    //------------------------------------------------------------------
+
+    // 2- on submit
 
     //i will call submit-Form fun that will:
 
