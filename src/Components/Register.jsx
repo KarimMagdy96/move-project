@@ -22,12 +22,14 @@ export default function Register() {
   //-----------------------------------------------------
 
   let navigate = useNavigate();
+
   //-----------------------------------------------------------------
   function getUserData(e) {
     let myuser = { ...user };
     myuser[e.target.name] = e.target.value;
     setusers(myuser);
   }
+
   //-------------------------------------------------
 
   async function sumbitForm(e) {
@@ -88,13 +90,15 @@ export default function Register() {
     
 // 2- on submit
 
-    //i will call sumbitForm fun that will:
+    //i will call submit-Form fun that will:
 
-    //1-set is loading to true thats simple way to make loading animation while wating for respond from backend
+    //1-set is loading to true thats simple way to make loading animation while waiting for respond from backend
     //2- call --validateRegisterForm fun and save return to validator var
     //in validation function i use ---joi-- library to validate it just make dummy obj with value of validate formula
     //and return validate method with user object and abort early to get full errors
-    //3-
+    //3-check is there is any errors send it to Error list use state the map on the list and display errors on alert
+    //else send data to api using --Axios-- and check for response if success i will use use navigate to login component
+    // massage come with error? send it to error set state and check is there any error push it as alert in return.
     <>
       <div className=" w-75 mx-auto mt-3">
         <h2 className="mb-5">Register Now</h2>
