@@ -12,6 +12,10 @@ export default function Home() {
    );
     callback(data.results)
   }
+  useEffect(() => {
+    
+  }, [])
+  
   return (
     <div>Home</div>
   )
