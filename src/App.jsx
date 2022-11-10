@@ -45,6 +45,10 @@ useEffect(() => {
   }
 
   return (
+    //STARTING FROM FUNCTION PROTECT ROUTE TO CHEK IF ANY DATA ON LOCAL STORAGE ? GO TO PAGE ELSE GO TO LOGIN
+    // i use useeffect to prevint relode effect by calling ---save userdata function--- that alreeady been call in login component to save the respond token  in use state
+    //and send it to nav bar to cheeak if its full hide or show some labels 
+    //last un is logout and i send it to nav to call it when logout and redirect to login
     <>
       <Navbar userdata={userdata} logOut={logOut} />
       <div className=" container-fluid">
