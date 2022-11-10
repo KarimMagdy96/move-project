@@ -12,22 +12,23 @@ import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Contacts from "./Components/Contacts";
 import Register from "./Components/Register";
+import Details from "./Components/Details";
 import jwtDecode from "jwt-decode";
+
 
 function App() {
   const [userdata, setUserData] = useState(null);
   let navigator = useNavigate();
-useEffect(() => {
-  if (localStorage.getItem('token')) {
-    saveUserData();
-  }
-}, [])
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      saveUserData();
+    }
+  }, []);
   function logOut() {
-    setUserData(null)
+    setUserData(null);
     localStorage.removeItem("token");
-    navigator('/login')
- 
- }
+    navigator("/login");
+  }
 
   function ProtectedRoute(props) {
     if (localStorage.getItem("token") === null) {
@@ -47,7 +48,7 @@ useEffect(() => {
   return (
     //STARTING FROM FUNCTION PROTECT ROUTE TO CHEK IF ANY DATA ON LOCAL STORAGE ? GO TO PAGE ELSE GO TO LOGIN
     // i use useeffect to prevint relode effect by calling ---save userdata function--- that alreeady been call in login component to save the respond token  in use state
-    //and send it to nav bar to cheeak if its full hide or show some labels 
+    //and send it to nav bar to cheeak if its full hide or show some labels
     //last un is logout and i send it to nav to call it when logout and redirect to login
 
     <>
@@ -59,6 +60,14 @@ useEffect(() => {
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="details"
+            element={
+              <ProtectedRoute>
+                <Details />
               </ProtectedRoute>
             }
           />

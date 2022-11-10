@@ -94,7 +94,7 @@ export default function Navbar({ userdata, logOut }) {
                 <li className="nav-item">
                   <span
                     onClick={() => logOut()}
-                    className="nav-link btn fw-bold px-3 login me-2 btn-outline-danger rounded-pill mb-2 mb-lg-0"
+                    className="nav-link btn fw-bold px-3 login me-2 btn-outline-danger rounded-pill mb-2 mb-lg-0 border border-3 border-danger"
                     aria-current="page"
                   >
                     Logout
@@ -104,7 +104,7 @@ export default function Navbar({ userdata, logOut }) {
                 <>
                   <li className="nav-item">
                     <Link
-                      className="nav-link btn fw-bold px-3 login me-2 btn-outline-danger rounded-pill mb-3 mb-lg-0"
+                      className="nav-link btn fw-bold px-3 login me-2 btn-outline-danger rounded-pill mb-3 mb-lg-0 border border-3 border-danger"
                       aria-current="page"
                       to="login"
                     >
