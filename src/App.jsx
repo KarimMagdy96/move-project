@@ -12,7 +12,6 @@ import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Contacts from "./Components/Contacts";
 import Register from "./Components/Register";
-import Logout from "./Components/Logout";
 import jwtDecode from "jwt-decode";
 
 function App() {
@@ -35,7 +34,7 @@ useEffect(() => {
       //nav to home
       return <Navigate to="/login" />;
     } else {
-      return props.Children;
+      return props.children;
       //nav where he want to go
     }
   }
@@ -108,14 +107,7 @@ useEffect(() => {
             }
           />
           <Route path="register" element={<Register />} />
-          <Route
-            path="logout"
-            element={
-              <ProtectedRoute>
-                <Logout />
-              </ProtectedRoute>
-            }
-          />
+
           <Route path="*" element={<Notfound />} />
         </Routes>
       </div>

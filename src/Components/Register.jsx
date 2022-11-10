@@ -99,10 +99,11 @@ export default function Register() {
     //3-check is there is any errors send it to Error list use state the map on the list and display errors on alert
     //else send data to api using --Axios-- and check for response if success i will use use navigate to login component
     // massage come with error? send it to error set state and check is there any error push it as alert in return.
+    //to login
     <>
       <div className=" w-75 mx-auto mt-3">
         <h2 className="mb-5">Register Now</h2>
-        //-----------------------------------------------------------------------
+       
         <form onSubmit={sumbitForm}>
           {errorList.map((error, i) =>
             i == 4 ? (
@@ -169,7 +170,6 @@ export default function Register() {
             )}
           </button>
         </form>
-        //----------------------------------------------------------------
       </div>
     </>
   );
