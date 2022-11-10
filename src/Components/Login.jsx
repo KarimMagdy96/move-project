@@ -75,26 +75,35 @@ export default function Login({ saveUserData }) {
           ) : (
             ""
           )}
-          <label htmlFor="email">Email:</label>
-          <input
-            onChange={getUserData}
-            type="email"
-            id="email"
-            name="email"
-            className=" form-control mb-2"
-          />
+          <div className="form-floating mb-3">
+            <input
+              onChange={getUserData}
+              type="email"
+              id="email"
+              name="email"
+              className=" form-control mb-2 "
+              placeholder="name@example.com"
+            />
+            <label htmlFor="floatingInput text-muted">Email address</label>
+          </div>
 
-          <label htmlFor="password">Password:</label>
-          <input
-            onChange={getUserData}
-            type="password"
-            id="password"
-            name="password"
-            className=" form-control mb-2"
-          />
-          <button type="sumbit" className=" btn btn-outline-info">
+          <div className="form-floating mb-3">
+            <input
+              onChange={getUserData}
+              type="password"
+              id="password"
+              name="password"
+              className=" form-control mb-2"
+              placeholder="PassWord"
+            />
+            <label htmlFor="floatingInput text-muted">PassWord</label>
+          </div>
+          <button
+            type="sumbit"
+            className=" btn text-white active btn-outline-danger rounded-pill px-3 fw-bold w-100"
+          >
             {isLodaing === true ? (
-              <i className="fa-solid fa-spinner fa-spin-pulse fa-spin"></i>
+              <i className="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse"></i>
             ) : (
               "Login"
             )}

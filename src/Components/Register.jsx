@@ -101,10 +101,10 @@ export default function Register() {
     // massage come with error? send it to error set state and check is there any error push it as alert in return.
     //to login
     <>
-      <div className=" w-75 mx-auto mt-3">
-        <h2 className="mb-5">Register Now</h2>
-       
-        <form onSubmit={sumbitForm}>
+      <div className=" w-75 mx-auto mt-3 ">
+        <h2 className="my-3 fw-bold">Register Now</h2>
+
+        <form className="form-floating" onSubmit={sumbitForm}>
           {errorList.map((error, i) =>
             i == 4 ? (
               <div className=" alert alert-danger">Password Invalid</div>
@@ -119,50 +119,69 @@ export default function Register() {
           ) : (
             ""
           )}
-          <label htmlFor="first_name">First Name:</label>
-          <input
-            onChange={getUserData}
-            type="text"
-            id="first_name"
-            name="first_name"
-            className=" form-control mb-2"
-          />
+          <div className="form-floating mb-3">
+            <input
+              onChange={getUserData}
+              type="text"
+              id="first_name"
+              name="first_name"
+              className=" form-control mb-2"
+              placeholder="First Name"
+            />
+            <label htmlFor="floatingInput text-muted">First Name</label>
+          </div>
 
-          <label htmlFor="last-name">Last Name:</label>
-          <input
-            onChange={getUserData}
-            type="text"
-            id="last_name"
-            name="last_name"
-            className=" form-control mb-2"
-          />
-          <label htmlFor="age">Age:</label>
-          <input
-            onChange={getUserData}
-            type="number"
-            id="age"
-            name="age"
-            className=" form-control mb-2"
-          />
+          <div className="form-floating mb-3">
+            <input
+              onChange={getUserData}
+              type="text"
+              id="last_name"
+              name="last_name"
+              className=" form-control mb-2"
+              placeholder="Last Name"
+            />
+            <label htmlFor="floatingInput text-muted">Last Name</label>
+          </div>
 
-          <label htmlFor="email">Email:</label>
-          <input
-            onChange={getUserData}
-            type="email"
-            id="email"
-            name="email"
-            className=" form-control mb-2"
-          />
+          <div className="form-floating mb-3">
+            <input
+              onChange={getUserData}
+              type="number"
+              id="age"
+              name="age"
+              className=" form-control mb-2"
+              placeholder="Age"
+            />
+            <label htmlFor="floatingInput ">Age</label>
+          </div>
 
-          <label htmlFor="password">Password:</label>
-          <input
-            onChange={getUserData}
-            type="password"
-            id="password"
-            name="password"
-            className=" form-control mb-2"
-          />
-          <button type="sumbit" className=" btn btn-outline-info">
+          <div className="form-floating mb-3">
+            <input
+              onChange={getUserData}
+              type="email"
+              id="email"
+              name="email"
+              className=" form-control mb-2 "
+              placeholder="name@example.com"
+            />
+            <label htmlFor="floatingInput text-muted">Email address</label>
+          </div>
+
+          <div className="form-floating mb-3">
+            <input
+              onChange={getUserData}
+              type="password"
+              id="password"
+              name="password"
+              className=" form-control mb-2"
+              placeholder="PassWord"
+            />
+            <label htmlFor="floatingInput text-muted">PassWord</label>
+          </div>
+          <button
+            type="sumbit"
+            className=" btn text-white active btn-outline-danger rounded-pill px-3 fw-bold w-100"
+          >
             {isLodaing === true ? (
               <i className="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse"></i>
             ) : (
