@@ -107,9 +107,9 @@ export default function Register() {
         <form className="form-floating" onSubmit={sumbitForm}>
           {errorList.map((error, i) =>
             i == 4 ? (
-              <div className=" alert alert-danger">Password Invalid</div>
+              <div key={i} className=" alert alert-danger">Password Invalid</div>
             ) : (
-              <div className=" alert alert-danger">{error.message}</div>
+              <div key={i} className=" alert alert-danger">{error.message}</div>
             )
           )}
           {error.length > 0 ? (
