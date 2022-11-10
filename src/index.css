@@ -29,3 +29,11 @@ input{
 .h{
   height: 75vh;
 }
+a{
+  text-decoration: none;
+  color: #131722;
+}
+a:hover{
+  text-decoration: none;
+  color: #131722;
+}

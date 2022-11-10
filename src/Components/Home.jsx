@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 export default function Home() {
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
+
 
   async function getTrending(mediaType, callback) {
     let { data } = await axios.get(
@@ -38,12 +40,17 @@ export default function Home() {
         {trendingMoves.map((move, i) => (
           <div key={i} className="col-md-2">
             <div className="move">
+              <Link to='details'>
+              
               <img
                 className="w-100 rounded"
                 src={"https://image.tmdb.org/t/p/w500" + move.poster_path}
                 alt=""
               />
-              <h3 className="h6 text-center mt-2 fw-bold">{move.title}</h3>
+              <h3 className="h6 text-center mt-2 fw-bold text-dark">
+                {move.title}
+              </h3>
+              </Link>
             </div>
           </div>
         ))}
@@ -66,12 +73,15 @@ export default function Home() {
         {trendingTv.map((move, i) => (
           <div key={i} className="col-md-2">
             <div className="move">
+              <Link to='details'>
+              
               <img
                 className="w-100 rounded"
                 src={"https://image.tmdb.org/t/p/w500" + move.poster_path}
                 alt=""
               />
               <h3 className="h6 text-center mt-2 fw-bold">{move.name}</h3>
+              </Link>
             </div>
           </div>
         ))}
@@ -80,9 +90,7 @@ export default function Home() {
         <div className="col-md-6  mb-3 d-flex justify-content-start  align-items-center border-strip">
           <div className="">
             <h1 className=" fw-bold ">OUR TOP PERFORMERS</h1>
-            <span className="h1 fw-bold ">
-              FOR THIS MONTH{" "}
-            </span>
+            <span className="h1 fw-bold ">FOR THIS MONTH </span>
             <div className="h1 fw-bold">
               ON <span className="text-danger fw-bold">KFLIX</span>
             </div>
@@ -92,17 +100,18 @@ export default function Home() {
         {trendingPeople.map((move, i) => (
           <div key={i} className="col-md-2">
             <div className="move">
-              {move.profile_path==null?"":
-              <>
-                <img
-                 className="w-100 rounded"
-                 src={"https://image.tmdb.org/t/p/w500" + move.profile_path}
-                 alt=""
-               />
-               <h3 className="h6 text-center mt-2 fw-bold">{move.name}</h3>
-
-              </>
-              }
+              {move.profile_path == null ? (
+                ""
+              ) : (
+                <>
+                  <img
+                    className="w-100 rounded"
+                    src={"https://image.tmdb.org/t/p/w500" + move.profile_path}
+                    alt=""
+                  />
+                  <h3 className="h6 text-center mt-2 fw-bold">{move.name}</h3>
+                </>
+              )}
             </div>
           </div>
         ))}
