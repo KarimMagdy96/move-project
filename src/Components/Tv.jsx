@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function Tv() {
-  return (
-    <div>Tvsdsad</div>
-  )
+export default function Tv({ trendingTv }) {
+  console.log(trendingTv)
+  return 
 }

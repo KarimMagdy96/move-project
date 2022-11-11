@@ -5,12 +5,13 @@ export default function Home() {
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
+  
 
   async function getTrending(mediaType, callback) {
     let { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef`
     );
-    callback(data.results.slice(0, 15));
+    callback(data.results);
   }
   useEffect(() => {
     getTrending("movie", setTrendingMovies);
@@ -19,6 +20,7 @@ export default function Home() {
   }, []);
   return (
     <>
+      
       <div className="hero d-none d-md-block">
         <div
           id="carouselExampleCaptions"
@@ -108,7 +110,6 @@ export default function Home() {
             data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev"
           >
-            
             <span class="visually-hidden">Previous</span>
           </button>
           <button
@@ -117,7 +118,6 @@ export default function Home() {
             data-bs-target="#carouselExampleCaptions"
             data-bs-slide="next"
           >
-            
             <span class="visually-hidden">Next</span>
           </button>
         </div>
@@ -140,7 +140,15 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {trendingMoves.map((move, i) => (
+          <div class="input-group mb-5">
+            <input
+              type="search"
+              class="form-control p-3 rounded-pill"
+              aria-label="Amount (to the nearest dollar)"
+              placeholder="Search For Your Movies"
+            />
+          </div>
+          {trendingMoves.slice(0, 18).map((move, i) => (
             <div key={i} className="col-md-2">
               <div className="move">
                 <Link to="details">
@@ -174,7 +182,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {trendingTv.map((move, i) => (
+          {trendingTv.slice(0, 15).map((move, i) => (
             <div key={i} className="col-md-2">
               <div className="move">
                 <img
@@ -200,7 +208,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {trendingPeople.map((move, i) => (
+          {trendingPeople.slice(0, 3).map((move, i) => (
             <div key={i} className="col-md-2">
               <div className="move">
                 {move.profile_path == null ? (

@@ -89,7 +89,7 @@ export default function Navbar({ userdata, logOut }) {
                 <i className="fab mx-2 fa-instagram"></i>
                 <i className="fab mx-2 fa-spotify"></i>
                 <i className="fab mx-2 fa-soundcloud"></i>
-              </li>
+              </li>    
               {userdata ? (
                 <li className="nav-item">
                   <span
@@ -100,6 +100,7 @@ export default function Navbar({ userdata, logOut }) {
                     Logout
                   </span>
                 </li>
+                
               ) : (
                 <>
                   <li className="nav-item">
