@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-export default function Home() {
+export default function Home({ setgettrinding }) {
+
+  
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
@@ -17,7 +19,10 @@ export default function Home() {
     getTrending("tv", setTrendingTv);
     getTrending("person", setTrendingPeople);
   }, []);
-
+ useEffect(() => {
+  setgettrinding(trendingMoves);
+ }, [trendingMoves]);
+ 
   return (
     <>
       {localStorage.setItem("tv", JSON.stringify(trendingTv))}

@@ -17,6 +17,7 @@ import jwtDecode from "jwt-decode";
 
 
 function App() {
+  const [gettruding, setgettrinding] = useState([]);
   const [userdata, setUserData] = useState(null);
 
   let navigator = useNavigate();
@@ -58,7 +59,6 @@ function App() {
     //last un is logout and i send it to nav to call it when logout and redirect to login
 
     <>
-    
       <Navbar userdata={userdata} logOut={logOut} />
 
       <div className="">
@@ -67,7 +67,7 @@ function App() {
             path=""
             element={
               <ProtectedRoute>
-                <Home />
+                <Home setgettrinding={setgettrinding} />
               </ProtectedRoute>
             }
           />
@@ -83,7 +83,7 @@ function App() {
             path="home"
             element={
               <ProtectedRoute>
-                <Home/>
+                <Home />
               </ProtectedRoute>
             }
           ></Route>
@@ -108,7 +108,7 @@ function App() {
             path="move"
             element={
               <ProtectedRoute>
-                <Move />
+                <Move gettruding={gettruding} />
               </ProtectedRoute>
             }
           />
