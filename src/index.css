@@ -55,3 +55,6 @@ a:hover{
 .des{
 top:30%
 }
+.list{
+  list-style: none;
+}
