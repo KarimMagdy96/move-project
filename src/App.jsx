@@ -81,7 +81,7 @@ function App() {
             path=""
             element={
               <ProtectedRoute>
-                <Home/>
+                <Home />
               </ProtectedRoute>
             }
           />
@@ -89,10 +89,21 @@ function App() {
             path="details"
             element={
               <ProtectedRoute>
+                {" "}
                 <Details />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route
+              path=":id"
+              element={
+                <ProtectedRoute>
+                  {" "}
+                  <Details />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
           <Route
             path="home"
             element={
@@ -117,7 +128,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login saveUserData={saveUserData} />} />
           <Route
             path="move"
             element={

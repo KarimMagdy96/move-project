@@ -36,7 +36,7 @@ export default function Login({ saveUserData }) {
         setIsLoading(false);
         localStorage.setItem("token", data.token);
         saveUserData();
-        navigate("/home");
+         navigate("/home");
         //nav to home
       } else {
         seterror(data.message);

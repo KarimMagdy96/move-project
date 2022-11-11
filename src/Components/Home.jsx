@@ -2,16 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
-
-
-
-
-
-
-
-
 export default function Home() {
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
@@ -28,10 +18,23 @@ export default function Home() {
     getTrending("tv", setTrendingTv);
     getTrending("person", setTrendingPeople);
   }, []);
+  
+  function search(e) {
+    let myNormalMoves = [...trendingMoves];
+    if(e.target.value != ''){
+let serchterm = e.target.value;
+let myMovies = [...trendingMoves];
+let results = myMovies.filter((move) =>
+  move.title.toLowerCase().includes(serchterm.toLowerCase())
+);
+setTrendingMovies(results);
+    }else{
+     getTrending("movie", setTrendingMovies);
+    }
+  }
 
   return (
     <>
-      
       {localStorage.setItem("tv", JSON.stringify(trendingTv))}
       {localStorage.setItem("person", JSON.stringify(trendingPeople))}
       {localStorage.setItem("movies", JSON.stringify(trendingMoves))}
@@ -157,6 +160,8 @@ export default function Home() {
           </div>
           <div className="input-group mb-5">
             <input
+            //---------------------------****
+              onChange={search}
               type="search"
               className="form-control p-3 rounded-pill"
               aria-label="Amount (to the nearest dollar)"
@@ -166,7 +171,7 @@ export default function Home() {
           {trendingMoves.slice(0, 18).map((move, i) => (
             <div key={i} className="col-md-2">
               <div className="move">
-                <Link to="details">
+                <Link to={`/details/${move.id}`}>
                   <img
                     className="w-100 rounded"
                     src={"https://image.tmdb.org/t/p/w500" + move.poster_path}

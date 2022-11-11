@@ -55,7 +55,7 @@ a:hover{
 .des{
 top:30%
 }
-.list{
+.list,ul{
   list-style: none;
 }
 .contact{
