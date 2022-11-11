@@ -20,7 +20,7 @@ export default function Footer() {
             <div className=" h3 fw-bold text-danger">Contact Me</div>
             <ul className="p-0 list">
               <li className="">
-                <i class="fa-solid fa-paper-plane text-danger"></i>
+                <i className="fa-solid fa-paper-plane text-danger"></i>
                 <a href="mailto:karimmagdy096@gmail.com">
                   {" "}
                   karimmagdy096
@@ -37,11 +37,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <i class="fa-brands fa-whatsapp text-success"></i> 01097220712
+                <i className="fa-brands fa-whatsapp text-success"></i> 01097220712
               </li>
               <li>
                 <a href="https://github.com/KarimMagdy96">
-                  <i class="fa-brands fa-github"></i>
+                  <i className="fa-brands fa-github"></i>
                   <span> KarimMagdy96</span>
                 </a>
               </li>

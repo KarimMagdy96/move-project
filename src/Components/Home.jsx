@@ -5,7 +5,6 @@ export default function Home() {
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
-  
 
   async function getTrending(mediaType, callback) {
     let { data } = await axios.get(
@@ -18,26 +17,29 @@ export default function Home() {
     getTrending("tv", setTrendingTv);
     getTrending("person", setTrendingPeople);
   }, []);
+
   return (
     <>
-      
+      {localStorage.setItem("tv", JSON.stringify(trendingTv))}
+      {localStorage.setItem("person", JSON.stringify(trendingPeople))}
+
       <div className="hero d-none d-md-block">
         <div
           id="carouselExampleCaptions"
-          class="carousel slide"
+          className="carousel slide"
           data-bs-ride="false"
         >
-          <div class="carousel-inner">
+          <div className="carousel-inner">
             <div
-              class="carousel-item active position-relative"
+              className="carousel-item active position-relative"
               data-bs-interval="50"
             >
               <img
                 src="../../public/poster4.jpg"
-                class="d-block w-100"
+                className="d-block w-100"
                 alt="..."
               />
-              <div class="position-absolute des  w-auto">
+              <div className="position-absolute des  w-auto">
                 <img
                   src="../../public/logo1.png"
                   className="w-25 cte mb-3"
@@ -55,13 +57,13 @@ export default function Home() {
                 <p className="cte">Creators:Steven Knight</p>
               </div>
             </div>
-            <div class="carousel-item " data-bs-interval="50">
+            <div className="carousel-item " data-bs-interval="50">
               <img
                 src="../../public/poster5.jpg"
-                class="d-block w-100"
+                className="d-block w-100"
                 alt="..."
               />
-              <div class="position-absolute des  w-auto">
+              <div className="position-absolute des  w-auto">
                 <img
                   src="../../public/logo2.png"
                   className="w-25 cte mb-3"
@@ -79,13 +81,13 @@ export default function Home() {
                 <p className="cte">Creators:Steven Knight</p>
               </div>
             </div>
-            <div class="carousel-item" data-bs-interval="50">
+            <div className="carousel-item" data-bs-interval="50">
               <img
                 src="../../public/poster6.jpg"
-                class="d-block w-100"
+                className="d-block w-100"
                 alt="..."
               />
-              <div class="position-absolute des  w-auto">
+              <div className="position-absolute des  w-auto">
                 <img
                   src="../../public/logo3.png"
                   className="w-25 cte mb-3"
@@ -105,20 +107,20 @@ export default function Home() {
             </div>
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev"
           >
-            <span class="visually-hidden">Previous</span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleCaptions"
             data-bs-slide="next"
           >
-            <span class="visually-hidden">Next</span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </div>
@@ -140,10 +142,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div class="input-group mb-5">
+          <div className="input-group mb-5">
             <input
               type="search"
-              class="form-control p-3 rounded-pill"
+              className="form-control p-3 rounded-pill"
               aria-label="Amount (to the nearest dollar)"
               placeholder="Search For Your Movies"
             />

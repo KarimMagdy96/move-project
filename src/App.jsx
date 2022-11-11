@@ -18,10 +18,16 @@ import jwtDecode from "jwt-decode";
 
 function App() {
   const [userdata, setUserData] = useState(null);
+
   let navigator = useNavigate();
+
+ 
+
   useEffect(() => {
+   
     if (localStorage.getItem("token")) {
       saveUserData();
+     
     }
   }, []);
   function logOut() {
@@ -52,6 +58,7 @@ function App() {
     //last un is logout and i send it to nav to call it when logout and redirect to login
 
     <>
+    
       <Navbar userdata={userdata} logOut={logOut} />
 
       <div className="">
@@ -76,10 +83,10 @@ function App() {
             path="home"
             element={
               <ProtectedRoute>
-                <Home />
+                <Home/>
               </ProtectedRoute>
             }
-          />
+          ></Route>
           <Route
             path="tv"
             element={
