@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-export default function Home({ setgettrinding }) {
+export default function Home() {
 
-  
+
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
@@ -19,9 +19,7 @@ export default function Home({ setgettrinding }) {
     getTrending("tv", setTrendingTv);
     getTrending("person", setTrendingPeople);
   }, []);
- useEffect(() => {
-  setgettrinding(trendingMoves);
- }, [trendingMoves]);
+
  
   return (
     <>
@@ -215,7 +213,7 @@ export default function Home({ setgettrinding }) {
               </div>
             </div>
           </div>
-          {trendingPeople.slice(0, 3).map((move, i) => (
+          {trendingPeople.slice(3, 6).map((move, i) => (
             <div key={i} className="col-md-2">
               <div className="move">
                 {move.profile_path == null ? (

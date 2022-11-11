@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default function Move(gettruding) {
- console.log(gettruding);
+export default function Move() {
+ 
 }

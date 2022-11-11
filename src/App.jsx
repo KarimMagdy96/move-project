@@ -14,13 +14,53 @@ import Contacts from "./Components/Contacts";
 import Register from "./Components/Register";
 import Details from "./Components/Details";
 import jwtDecode from "jwt-decode";
+import axios from "axios";
+
+
+
+
+
 
 
 function App() {
-  const [gettruding, setgettrinding] = useState([]);
-  const [userdata, setUserData] = useState(null);
 
+  const [userdata, setUserData] = useState(null);
   let navigator = useNavigate();
+
+
+
+
+
+
+const [treandingmovies, settreandingmovies] = useState([]);
+const [treandingtv, settreandingtv] = useState([]);
+const [treandingpeople, settreandingpeople] = useState([]);
+
+async function getdata(mediaType, callback) {
+  let { data } = await axios.get(
+    `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef`
+  );
+  callback(data.results);
+}
+useEffect(() => {
+  getdata("movie", settreandingmovies);
+  getdata("tv", treandingtv);
+  getdata("person", treandingpeople);
+}, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 
@@ -59,6 +99,7 @@ function App() {
     //last un is logout and i send it to nav to call it when logout and redirect to login
 
     <>
+      
       <Navbar userdata={userdata} logOut={logOut} />
 
       <div className="">
@@ -67,7 +108,9 @@ function App() {
             path=""
             element={
               <ProtectedRoute>
-                <Home setgettrinding={setgettrinding} />
+                <Home
+               
+                />
               </ProtectedRoute>
             }
           />
@@ -103,12 +146,12 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="login" element={<Login saveUserData={saveUserData} />} />
+          <Route path="login" element={<Login />} />
           <Route
             path="move"
             element={
               <ProtectedRoute>
-                <Move gettruding={gettruding} />
+                <Move />
               </ProtectedRoute>
             }
           />
