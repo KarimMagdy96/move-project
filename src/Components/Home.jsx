@@ -1,9 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+
+
+
+
+
+
+
+
+
+
 export default function Home() {
-
-
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
@@ -20,11 +29,12 @@ export default function Home() {
     getTrending("person", setTrendingPeople);
   }, []);
 
- 
   return (
     <>
+      
       {localStorage.setItem("tv", JSON.stringify(trendingTv))}
       {localStorage.setItem("person", JSON.stringify(trendingPeople))}
+      {localStorage.setItem("movies", JSON.stringify(trendingMoves))}
 
       <div className="hero d-none d-md-block">
         <div

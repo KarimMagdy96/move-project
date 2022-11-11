@@ -15,60 +15,34 @@ import Register from "./Components/Register";
 import Details from "./Components/Details";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
-
-
-
-
-
-
+import { func } from "joi";
 
 function App() {
-
   const [userdata, setUserData] = useState(null);
   let navigator = useNavigate();
 
+  let mov;
 
+  const [tmoves, settmoves] = useState([]);
+  const [ttv, setttv] = useState([]);
+  const [tpeople, settpeople] = useState([]);
 
-
-
-
-const [treandingmovies, settreandingmovies] = useState([]);
-const [treandingtv, settreandingtv] = useState([]);
-const [treandingpeople, settreandingpeople] = useState([]);
-
-async function getdata(mediaType, callback) {
-  let { data } = await axios.get(
-    `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef`
-  );
-  callback(data.results);
-}
-useEffect(() => {
-  getdata("movie", settreandingmovies);
-  getdata("tv", treandingtv);
-  getdata("person", treandingpeople);
-}, []);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+  async function gettrendings(mediaType, callback) {
+    let { data } = await axios.get(
+      `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef`
+    );
+    callback(data.results);
+  }
 
   useEffect(() => {
-   
+    gettrendings("movie", settmoves);
+    gettrendings("tv", setttv);
+    gettrendings("person", settpeople);
+  }, []);
+
+  useEffect(() => {
     if (localStorage.getItem("token")) {
       saveUserData();
-     
     }
   }, []);
   function logOut() {
@@ -99,7 +73,6 @@ useEffect(() => {
     //last un is logout and i send it to nav to call it when logout and redirect to login
 
     <>
-      
       <Navbar userdata={userdata} logOut={logOut} />
 
       <div className="">
@@ -108,9 +81,7 @@ useEffect(() => {
             path=""
             element={
               <ProtectedRoute>
-                <Home
-               
-                />
+                <Home/>
               </ProtectedRoute>
             }
           />
