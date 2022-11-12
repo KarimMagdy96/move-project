@@ -8,13 +8,16 @@ export default function Details() {
   let prams= useParams();
   const [movieDetails, setMovieDetails] = useState(null)
 
-  async function getmoviesDetails(id){
-    let { data } =await axios.get(`
-https://api.themoviedb.org/3/movie/${id}?api_key=fd3c31e2d7a54303dc08756b66824aef`);
-setMovieDetails(data)
+  async function getmoviesDetails(id,category) {
+    let { data } = await axios.get(`
+https://api.themoviedb.org/3/${category}/${id}?api_key=fd3c31e2d7a54303dc08756b66824aef`);
+    setMovieDetails(data);
+    console.log();
   }
   useEffect(() => {
-    getmoviesDetails(prams.id);
+
+    getmoviesDetails(prams.id, prams.category);
+    
   
    
   }, [])
@@ -44,18 +47,27 @@ setMovieDetails(data)
                 {movieDetails.vote_average}/10
               </li>
               <li>
-                <span className='fw-bold text-danger'>Keywords: </span>
+                <span className="fw-bold text-danger">Keywords: </span>
                 {movieDetails.tagline}
               </li>
               <li>
-                <a className='btn btn-danger py-3 my-3 fw-bold' href={movieDetails.homepage} target='_blank'>Watch Movie</a>
+                <a
+                  className="btn btn-danger py-3 my-3 fw-bold"
+                  href={movieDetails.homepage}
+                  target="_blank"
+                >
+                  Watch Movie
+                </a>
               </li>
             </ul>
           </div>
         </div>
       ) : (
         <div className="w-100 vh-100 d-flex align-items-center justify-content-center">
-          <i className="fa fa-spinner fa-spin fa-3x"></i>
+         <div className="spinner-border" role="status">
+  <span className="visually-hidden">Loading...</span>
+</div>
+
         </div>
       )}
     </div>

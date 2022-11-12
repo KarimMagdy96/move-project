@@ -160,7 +160,7 @@ setTrendingMovies(results);
           </div>
           <div className="input-group mb-5">
             <input
-            //---------------------------****
+              //---------------------------****
               onChange={search}
               type="search"
               className="form-control p-3 rounded-pill"
@@ -171,7 +171,7 @@ setTrendingMovies(results);
           {trendingMoves.slice(0, 18).map((move, i) => (
             <div key={i} className="col-md-2">
               <div className="move">
-                <Link to={`/details/${move.id}`}>
+                <Link to={`/details/${move.id}/movie`}>
                   <img
                     className="w-100 rounded"
                     src={"https://image.tmdb.org/t/p/w500" + move.poster_path}
@@ -205,12 +205,14 @@ setTrendingMovies(results);
           {trendingTv.slice(0, 15).map((move, i) => (
             <div key={i} className="col-md-2">
               <div className="move">
+                <Link to={`/details/${move.id}/tv`}>
                 <img
                   className="w-100 rounded"
                   src={"https://image.tmdb.org/t/p/w500" + move.poster_path}
                   alt=""
                 />
                 <h3 className="h6 text-center mt-2 fw-bold">{move.name}</h3>
+                 </Link>
               </div>
             </div>
           ))}

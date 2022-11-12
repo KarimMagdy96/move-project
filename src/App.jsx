@@ -102,7 +102,17 @@ function App() {
                   <Details />
                 </ProtectedRoute>
               }
-            />
+            >
+              <Route
+                path=":category"
+                element={
+                  <ProtectedRoute>
+                    {" "}
+                    <Details />
+                  </ProtectedRoute>
+                }
+              ></Route>
+            </Route>
           </Route>
           <Route
             path="home"
