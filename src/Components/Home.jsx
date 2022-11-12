@@ -51,13 +51,13 @@ setTrendingMovies(results);
               data-bs-interval="50"
             >
               <img
-                src="../../public/poster4.jpg"
+                src="public/poster4.jpg"
                 className="d-block w-100"
                 alt="..."
               />
               <div className="position-absolute des  w-auto">
                 <img
-                  src="../../public/logo1.png"
+                  src="public/logo1.png"
                   className="w-25 cte mb-3"
                   alt=""
                 />
@@ -75,13 +75,13 @@ setTrendingMovies(results);
             </div>
             <div className="carousel-item " data-bs-interval="50">
               <img
-                src="../../public/poster5.jpg"
+                src="public/poster5.jpg"
                 className="d-block w-100"
                 alt="..."
               />
               <div className="position-absolute des  w-auto">
                 <img
-                  src="../../public/logo2.png"
+                  src="public/logo2.png"
                   className="w-25 cte mb-3"
                   alt=""
                 />
@@ -99,13 +99,13 @@ setTrendingMovies(results);
             </div>
             <div className="carousel-item" data-bs-interval="50">
               <img
-                src="../../public/poster6.jpg"
+                src="public/poster6.jpg"
                 className="d-block w-100"
                 alt="..."
               />
               <div className="position-absolute des  w-auto">
                 <img
-                  src="../../public/logo3.png"
+                  src="public/logo3.png"
                   className="w-25 cte mb-3"
                   alt=""
                 />

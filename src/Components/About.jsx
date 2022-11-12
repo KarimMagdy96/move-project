@@ -7,7 +7,7 @@ export default function About() {
         <div className="row">
           <div className="col-4">
             <img
-              src="../../public/profile.jpg "
+              src="public/profile.jpg"
               className="w-100  rounded-start"
               alt="..."
             />
@@ -42,11 +42,7 @@ export default function About() {
         </div>
       </div>
       <div className="card d-block d-md-none m-auto w-75 my-5">
-        <img
-          src="../../public/profile.jpg"
-          className="card-img-top"
-          alt="..."
-        />
+        <img src="public/profile.jpg" className="card-img-top" alt="..." />
         <div className="card-body">
           <p className="card-text">
             Creative Front-End Developer offering 1 year of experience providing

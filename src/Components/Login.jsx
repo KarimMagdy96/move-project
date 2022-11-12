@@ -57,7 +57,7 @@ export default function Login({ saveUserData }) {
   }
   return (
     <>
-      <div className=" w-75 mx-auto mt-3">
+      <div className=" w-75 mx-auto mt-5 mb-5 pb-5">
         <h2 className="mb-5">Login</h2>
 
         <form onSubmit={sumbitForm}>
@@ -100,7 +100,7 @@ export default function Login({ saveUserData }) {
           </div>
           <button
             type="sumbit"
-            className=" btn text-white active btn-outline-danger rounded-pill px-3 fw-bold w-100"
+            className=" btn text-white active btn-outline-danger rounded-pill px-3 fw-bold w-100 mb-5"
           >
             {isLodaing === true ? (
               <i className="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse"></i>
