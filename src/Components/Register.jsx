@@ -41,7 +41,7 @@ export default function Register() {
       setIsLoading(false);
     } else {
       let { data } = await Axios.post(
-        "https://route-egypt-api.herokuapp.com/signup",
+        "https://route-movies-api.vercel.app/signup",
         user
       );
       if (data.message === "success") {

@@ -13,11 +13,10 @@ export default function Login({ saveUserData }) {
     password: "",
   });
 
-  
   function getUserData(e) {
     let myuser = { ...user };
     myuser[e.target.name] = e.target.value;
-        setusers(myuser);
+    setusers(myuser);
   }
   async function sumbitForm(e) {
     e.preventDefault();
@@ -28,7 +27,7 @@ export default function Login({ saveUserData }) {
       setIsLoading(false);
     } else {
       let { data } = await Axios.post(
-        "https://route-egypt-api.herokuapp.com/signin",
+        "https://route-movies-api.vercel.app/signin",
         user
       );
       if (data.message === "success") {
@@ -36,7 +35,7 @@ export default function Login({ saveUserData }) {
         setIsLoading(false);
         localStorage.setItem("token", data.token);
         saveUserData();
-         navigate("/home");
+        navigate("/home");
         //nav to home
       } else {
         seterror(data.message);
