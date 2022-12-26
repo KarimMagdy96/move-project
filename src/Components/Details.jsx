@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 export default function Details() {
   let prams = useParams();
+  console.log(prams);
   const [movieDetails, setMovieDetails] = useState(null);
   let [sameshows, setsameshows] = useState([]);
 
@@ -87,16 +88,33 @@ https://api.themoviedb.org/3/${category}/${id}?api_key=fd3c31e2d7a54303dc08756b6
                 return (
                   <div className="col-md-2 col-6" key={i}>
                     <div className="show">
-                      <Link to={`/details/${show.id}/tv`}>
-                        <img
-                          className="w-100 rounded"
-                          src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
-                          alt=""
-                        />
-                        <h3 className="h6 text-center mt-2 fw-bold">
-                          {show.name ? show.name : show.title}
-                        </h3>
-                      </Link>
+                      {prams.category === "movie" ? (
+                        <>
+                          <Link to={`/details/${show.id}/movie`}>
+                            <img
+                              className="w-100 rounded"
+                              src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
+                              alt=""
+                            />
+                            <h3 className="h6 text-center mt-2 fw-bold">
+                              {show.name ? show.name : show.title}
+                            </h3>
+                          </Link>
+                        </>
+                      ) : (
+                        <>
+                          <Link to={`/details/${show.id}/tv`}>
+                            <img
+                              className="w-100 rounded"
+                              src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
+                              alt=""
+                            />
+                            <h3 className="h6 text-center mt-2 fw-bold">
+                              {show.name ? show.name : show.title}
+                            </h3>
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </div>
                 );
