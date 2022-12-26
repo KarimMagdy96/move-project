@@ -35,6 +35,7 @@ export default function Register() {
   async function sumbitForm(e) {
     e.preventDefault();
     setIsLoading(true);
+    localStorage.setItem("user", JSON.stringify(user.first_name));
     let validInput = validateRegisterForm();
     if (validInput.error) {
       seterrorList(validInput.error.details);
@@ -107,9 +108,13 @@ export default function Register() {
         <form className="form-floating" onSubmit={sumbitForm}>
           {errorList.map((error, i) =>
             i == 4 ? (
-              <div key={i} className=" alert alert-danger">Password Invalid</div>
+              <div key={i} className=" alert alert-danger">
+                Password Invalid
+              </div>
             ) : (
-              <div key={i} className=" alert alert-danger">{error.message}</div>
+              <div key={i} className=" alert alert-danger">
+                {error.message}
+              </div>
             )
           )}
           {error.length > 0 ? (

@@ -1,27 +1,22 @@
-import axios from 'axios';
-import { func } from 'joi';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-
+import axios from "axios";
+import { func } from "joi";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Details() {
-  let prams= useParams();
-  const [movieDetails, setMovieDetails] = useState(null)
+  let prams = useParams();
+  const [movieDetails, setMovieDetails] = useState(null);
 
-  async function getmoviesDetails(id,category) {
+  async function getmoviesDetails(id, category) {
     let { data } = await axios.get(`
 https://api.themoviedb.org/3/${category}/${id}?api_key=fd3c31e2d7a54303dc08756b66824aef`);
     setMovieDetails(data);
     console.log();
   }
   useEffect(() => {
-
     getmoviesDetails(prams.id, prams.category);
-    
-  
-   
-  }, [])
-  
+  }, []);
+
   return (
     <div className=" container py-5">
       {movieDetails ? (
@@ -56,18 +51,50 @@ https://api.themoviedb.org/3/${category}/${id}?api_key=fd3c31e2d7a54303dc08756b6
                   href={movieDetails.homepage}
                   target="_blank"
                 >
-                  Watch Movie
+                  Watch It Now
                 </a>
               </li>
             </ul>
           </div>
         </div>
       ) : (
-        <div className="w-100 vh-100 d-flex align-items-center justify-content-center">
-         <div className="spinner-border" role="status">
-  <span className="visually-hidden">Loading...</span>
-</div>
-
+        <div className="row" aria-hidden="true">
+          <div className="col-md-3">
+            <img
+              src='{"../img/306x459.png"}'
+              alt="lorem"
+              className="w-100 rounded"
+            />
+          </div>
+          <div className="col-md-9">
+            <h2 className=" placeholder-glow">
+              <span className="placeholder col-6" />
+            </h2>
+            <p className="placeholder-glow">
+              <span className="d-block mt-3 placeholder col-7" />
+              <span className="placeholder col-4" />
+            </p>
+            <ul>
+              <li>
+                <span className=" placeholder-glow">
+                  <span className="placeholder col-4" />
+                </span>
+                :{"{"}" "{"}"}
+              </li>
+              <li className=" ">
+                {"{"}" "{"}"}
+                <span className="placeholder-glow">
+                  <span className="placeholder col-3" />
+                </span>
+              </li>
+              <li>
+                <span className="placeholder-glow">
+                  <span className="placeholder col-2" />
+                </span>
+              </li>
+              <li />
+            </ul>
+          </div>
         </div>
       )}
     </div>

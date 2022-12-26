@@ -1,9 +1,13 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { moveContext } from "../context/store";
 export default function Navbar({ userdata, logOut }) {
+  let { search } = useContext(moveContext);
+
   return (
     <>
-      <nav className="navbar shadow  navbar-expand-lg navbar-white ">
+      <nav className="navbar  shadow  navbar-expand-lg  rounded">
         <div className="container-fluid">
           <a className="navbar-brand brand" href="#">
             K
@@ -19,8 +23,11 @@ export default function Navbar({ userdata, logOut }) {
           >
             <i className="fa-solid fa-bars-staggered border-0"></i>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 fw-bold links-cont ">
+          <div
+            className="collapse navbar-collapse d-flex justify-content-between"
+            id="navbarSupportedContent"
+          >
+            <ul className="navbar-nav  mb-2 mb-lg-0 fw-bold links-cont">
               {userdata ? (
                 <>
                   <li className="nav-item ">
@@ -41,15 +48,7 @@ export default function Navbar({ userdata, logOut }) {
                       TV Shows
                     </Link>
                   </li>
-                  <li className="nav-item ">
-                    <Link
-                      className="nav-link active"
-                      aria-current="page"
-                      to="people"
-                    >
-                      People
-                    </Link>
-                  </li>
+
                   <li className="nav-item">
                     <Link
                       className="nav-link active"
@@ -82,25 +81,39 @@ export default function Navbar({ userdata, logOut }) {
                 ""
               )}
             </ul>
-            <ul className="navbar-nav d-flex mb-2 mb-lg-0 ">
-              <li className="nav-item d-flex order-last order-lg-first align-items-center text-secondary  justify-content-center">
-                <i className="fab me-2 fa-facebook"></i>
-                <i className="fab mx-2 fa-twitter"></i>
-                <i className="fab mx-2 fa-instagram"></i>
-                <i className="fab mx-2 fa-spotify"></i>
-                <i className="fab mx-2 fa-soundcloud"></i>
-              </li>    
+            {userdata ? (
+              <>
+                <div className="input-group  w-50">
+                  <input
+                    //---------------------------****
+                    onChange={search}
+                    type="search"
+                    className="form-control   rounded-pill bg-transparent "
+                    aria-label="Amount (to the nearest dollar)"
+                    placeholder="Search Your Favorite Show"
+                  />
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+            <ul className="navbar-nav  d-flex mb-2 mb-lg-0 ">
               {userdata ? (
-                <li className="nav-item">
-                  <span
-                    onClick={() => logOut()}
-                    className="nav-link btn fw-bold px-3 login me-2 btn-outline-danger rounded-pill mb-2 mb-lg-0 border border-3 border-danger"
-                    aria-current="page"
-                  >
-                    Logout
-                  </span>
+                <li className="dropdown d-flex align-items-center">
+                  <div className="dropdown-content">
+                    <div
+                      onClick={() => logOut()}
+                      className="nav-link logout btn fw-bold px-3 login me-2 btn-outline-danger rounded-pill mb-2 mb-lg-0 border border-3 border-danger"
+                      aria-current="page"
+                    >
+                      Logout
+                    </div>
+                  </div>
+
+                  <button className="rounded-circle border-0 dropbtn login-name bg-light text-danger fw-bold">
+                    {localStorage.getItem("user")[1].toUpperCase()}
+                  </button>
                 </li>
-                
               ) : (
                 <>
                   <li className="nav-item">

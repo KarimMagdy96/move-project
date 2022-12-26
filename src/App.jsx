@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Tv from "./Components/Tv";
-import People from "./Components/People";
+
 import Notfound from "./Components/Notfound";
 import Footer from "./Components/Footer";
 import Home from "./Components/Home";
@@ -16,7 +16,7 @@ import Details from "./Components/Details";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import { func } from "joi";
-
+import CounterContextProvider from "./context/store";
 function App() {
   const [userdata, setUserData] = useState(null);
   let navigator = useNavigate();
@@ -73,9 +73,8 @@ function App() {
     //last un is logout and i send it to nav to call it when logout and redirect to login
 
     <>
-      <Navbar userdata={userdata} logOut={logOut} />
-
-      <div className="">
+      <CounterContextProvider>
+        <Navbar userdata={userdata} logOut={logOut} />
         <Routes>
           <Route
             path=""
@@ -130,14 +129,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="people"
-            element={
-              <ProtectedRoute>
-                <People />
-              </ProtectedRoute>
-            }
-          />
+
           <Route path="login" element={<Login saveUserData={saveUserData} />} />
           <Route
             path="move"
@@ -167,8 +159,8 @@ function App() {
 
           <Route path="*" element={<Notfound />} />
         </Routes>
-      </div>
-      <Footer />
+        <Footer />
+      </CounterContextProvider>
     </>
   );
 }

@@ -1,62 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 :root {
   --bg-main: #131722;
-  --light-bg:#24baef;
-  --main-color:#fff;
+  --light-bg: #24baef;
+  --main-color: #fff;
 }
 
-body{
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
-    background-color: white;
-    color: var(--main-color);
-    color: #131722;
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  background-color: white;
+  color: var(--main-color);
+  color: #131722;
+  margin-top: 80px;
 }
-input{
-    /* background-color: transparent !important; */
-    color: balck !important;
+input {
+  /* background-color: transparent !important; */
+  color: balck !important;
 }
-.brand{
+.brand {
   color: red;
   font-weight: 900;
   font-size: 2em;
-  
 }
-.login:hover{
+.login:hover {
   color: #fff !important;
 }
-.h{
+.h {
   height: 75vh;
 }
-a{
+a {
   text-decoration: none;
   color: #131722;
 }
-a:hover{
+a:hover {
   text-decoration: none;
   color: #131722;
 }
-.hero{
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
   overflow: hidden;
 }
-.imge{
+.hero-img {
+  height: 80%;
+}
+.imge {
   width: 100%;
   height: 100vh;
- 
 }
-.cte{
+.cte {
   color: white;
   margin-left: 100px;
 }
-.des{
-top:30%
+.des {
+  top: 30%;
 }
-.list,ul{
+.list,
+ul {
   list-style: none;
 }
-.contact{
- height: 75vh;
+.contact {
+  height: 75vh;
+}
+.navbar {
+  /* From https://css.glass */
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  top: 0;
+  bottom: 0;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.088);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 99999999999999999;
+}
+.form-control:focus {
+  border-color: rgb(220, 53, 69);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(220, 53, 69, 0.6);
+}
+.login-name {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: tomato;
 }

@@ -1,23 +1,19 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { moveContext } from "../context/store";
 export default function Move() {
-   const [trendingMoves, setTrendingMovies] = useState([]);
-   
-   async function getTrending(page) {
-     let { data } = await axios.get(
-       `https://api.themoviedb.org/3/discover/movie?api_key=fd3c31e2d7a54303dc08756b66824aef&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
-       );
-       setTrendingMovies(data.results);
-      }
-      useEffect(() => {
-        getTrending(1);
-      }, []);
-     let num = new Array(10).fill(1).map((e,i)=>i+1)
-     console.log(num)
-    function up () {
-        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-    }
+  let [page, setpage] = useState(1);
+  let { getTrending, trendingMoves, setTrendingMovies } =
+    useContext(moveContext);
+
+  useEffect(() => {
+    getTrending(
+      "movie",
+      setTrendingMovies,
+      "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=",
+      page
+    );
+  }, []);
   return (
     <div className="container">
       {trendingMoves ? (
@@ -59,19 +55,93 @@ export default function Move() {
           </div>
           <nav aria-label="Page navigation example ">
             <ul className="pagination  d-flex justify-content-center">
-              {num.map((e, i) => {
-                return (
-                  <>
-                    <li
-                      key={i}
-                      className="page-item"
-                      onClick={() => getTrending(e)}
-                    >
-                      <a className="page-link text-danger">{e}</a>
-                    </li>
-                  </>
-                );
-              })}
+              <li
+                className="page-item user-select-none"
+                onClick={() => {
+                  page === 0
+                    ? setpage(() => (page = 1))
+                    : setpage(() => page--);
+                  console.log(page);
+                  getTrending(
+                    "movie",
+                    setTrendingMovies,
+                    "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=",
+                    page
+                  );
+                }}
+              >
+                {page <= 1 ? (
+                  <a className="page-link text-muted">Previous</a>
+                ) : (
+                  <a className="page-link text-danger">Previous</a>
+                )}
+              </li>
+
+              <li
+                className="page-item user-select-none"
+                onClick={() => {
+                  console.log(page);
+
+                  setpage(2);
+                  getTrending(
+                    "movie",
+                    setTrendingMovies,
+                    "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=",
+                    page
+                  );
+                }}
+              >
+                <a className="page-link text-danger">2</a>
+              </li>
+              <li
+                className="page-item user-select-none"
+                onClick={() => {
+                  console.log(page);
+
+                  setpage(3);
+
+                  getTrending(
+                    "movie",
+                    setTrendingMovies,
+                    "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=",
+                    page
+                  );
+                }}
+              >
+                <a className="page-link text-danger">3</a>
+              </li>
+              <li
+                className="page-item user-select-none"
+                onClick={() => {
+                  console.log(page);
+
+                  setpage(4);
+                  getTrending(
+                    "movie",
+                    setTrendingMovies,
+                    "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=",
+                    page
+                  );
+                }}
+              >
+                <a className="page-link text-danger">4</a>
+              </li>
+              <li
+                className="page-item user-select-none"
+                onClick={() => {
+                  console.log(page);
+
+                  setpage(() => page++);
+                  getTrending(
+                    "movie",
+                    setTrendingMovies,
+                    "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=",
+                    page
+                  );
+                }}
+              >
+                <a className="page-link text-danger">Next</a>
+              </li>
             </ul>
           </nav>
         </>

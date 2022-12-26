@@ -57,7 +57,7 @@ export default function Login({ saveUserData }) {
   return (
     <>
       <div className=" w-75 mx-auto mt-5 mb-5 pb-5">
-        <h2 className="mb-5">Login</h2>
+        <h2 className="mb-5 fw-bold">Login</h2>
 
         <form onSubmit={sumbitForm}>
           {errorList.map((error, i) =>
