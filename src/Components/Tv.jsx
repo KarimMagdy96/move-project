@@ -37,7 +37,7 @@ export default function Move() {
               UNLIMITED TV SHOWS
             </div>
             {trendingTv.map((tv, i) => (
-              <div key={i} className="col-md-2">
+              <div key={i} className="col-md-2 col-6">
                 <div className="tv">
                   <Link to={`/details/${tv.id}/tv`}>
                     <img

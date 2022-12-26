@@ -37,7 +37,7 @@ export default function Move() {
               UNLIMITED TV SHOWS & MOVIES
             </div>
             {trendingMoves.map((move, i) => (
-              <div key={i} className="col-md-2">
+              <div key={i} className="col-md-2 col-6">
                 <div className="move">
                   <Link to={`/details/${move.id}/movie`}>
                     <img

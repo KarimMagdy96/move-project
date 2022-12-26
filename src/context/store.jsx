@@ -13,7 +13,7 @@ export default function MoviesContextProvider(props) {
     let { data } = await axios.get(
       `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef${pageLink}${page}`
     );
-    console.log(data.results);
+
     callback(data.results);
   }
 
@@ -27,12 +27,18 @@ export default function MoviesContextProvider(props) {
     if (e.target.value != "") {
       let searchTerm = e.target.value;
       let myMovies = [...trendingMoves];
-      let results = myMovies.filter((move) =>
+      let mytv = [...trendingTv];
+      let moveResults = myMovies.filter((move) =>
         move.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      setTrendingMovies(results);
+      let tvResults = mytv.filter((tv) =>
+        tv.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setTrendingMovies(moveResults);
+      setTrendingTv(tvResults);
     } else {
       getTrending("movie", setTrendingMovies, "", "");
+      getTrending("tv", setTrendingTv, "", "");
     }
   }
   return (

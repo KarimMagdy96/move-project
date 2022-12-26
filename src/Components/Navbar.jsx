@@ -88,7 +88,7 @@ export default function Navbar({ userdata, logOut }) {
                     //---------------------------****
                     onChange={search}
                     type="search"
-                    className="form-control   rounded-pill bg-transparent "
+                    className="form-control   rounded-pill search "
                     aria-label="Amount (to the nearest dollar)"
                     placeholder="Search Your Favorite Show"
                   />
@@ -111,7 +111,9 @@ export default function Navbar({ userdata, logOut }) {
                   </div>
 
                   <button className="rounded-circle border-0 dropbtn login-name bg-light text-danger fw-bold">
-                    {localStorage.getItem("user")[1].toUpperCase()}
+                    {localStorage.getItem("user")
+                      ? localStorage.getItem("user")[1].toUpperCase()
+                      : ""}
                   </button>
                 </li>
               ) : (
