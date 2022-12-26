@@ -33,7 +33,7 @@ export default function Move() {
             <i className="fa-solid fa-circle-up fa-3x text-danger"></i>
           </button>
           <div className="row mt-5">
-            <div className="w-100 text-center fw-bold h1 text-danger mb-5">
+            <div className="w-100 text-center fw-bold h1 text-danger mb-5 pt-5">
               UNLIMITED TV SHOWS & MOVIES
             </div>
             {trendingMoves.map((move, i) => (

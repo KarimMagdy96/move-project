@@ -9,8 +9,6 @@ import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Move from "./Components/Move";
 import Navbar from "./Components/Navbar";
-import About from "./Components/About";
-import Contacts from "./Components/Contacts";
 import Register from "./Components/Register";
 import Details from "./Components/Details";
 import jwtDecode from "jwt-decode";
@@ -139,22 +137,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="about"
-            element={
-              <ProtectedRoute>
-                <About />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="contacts"
-            element={
-              <ProtectedRoute>
-                <Contacts />
-              </ProtectedRoute>
-            }
-          />
+
           <Route path="register" element={<Register />} />
 
           <Route path="*" element={<Notfound />} />

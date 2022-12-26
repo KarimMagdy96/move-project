@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import React from "react";
 import { moveContext } from "../context/store";
+import { Spinner } from "react-bootstrap";
 export default function Home() {
   let {
     trendingMoves,
@@ -9,10 +10,18 @@ export default function Home() {
     trendingTv,
     setTrendingMovies,
     getTrending,
+    spinner,
   } = useContext(moveContext);
   return (
     <>
-      <div className="container">
+      {spinner ? (
+        ""
+      ) : (
+        <div className="loading">
+          <i class="fa-solid fa-spinner fa-spin fa-10x"></i>
+        </div>
+      )}
+      <div className="container mb-5">
         <div className="row pt-5">
           <div className="col-md-12  mb-3">
             <div className="">

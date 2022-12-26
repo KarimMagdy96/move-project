@@ -7,13 +7,15 @@ export default function MoviesContextProvider(props) {
   const [trendingMoves, setTrendingMovies] = useState([]);
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
-
+  const [spinner, setSpinner] = useState(false);
   // get all data from api
   async function getTrending(mediaType, callback, pageLink, page) {
-    let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef${pageLink}${page}`
-    );
-
+    setSpinner(true);
+    let { data } = await axios
+      .get(
+        `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef${pageLink}${page}`
+      )
+      .then(setSpinner(true));
     callback(data.results);
   }
 
@@ -51,6 +53,7 @@ export default function MoviesContextProvider(props) {
         getTrending,
         setTrendingTv,
         search,
+        spinner,
       }}
     >
       {props.children}

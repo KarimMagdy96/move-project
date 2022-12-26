@@ -55,27 +55,11 @@ export default function Navbar({ userdata, logOut }) {
                       aria-current="page"
                       to="move"
                     >
-                      Move
+                      Movies
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active"
-                      aria-current="page"
-                      to="about"
-                    >
-                      about
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link
-                      className="nav-link active"
-                      aria-current="page"
-                      to="contacts"
-                    >
-                      Contacts
-                    </Link>
-                  </li>
+                  <li className="nav-item"></li>
+                  <li className="nav-item"></li>
                 </>
               ) : (
                 ""
