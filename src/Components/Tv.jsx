@@ -21,7 +21,7 @@ export default function Move() {
         ""
       ) : (
         <div className="loading">
-          <i class="fa-solid fa-spinner fa-spin fa-10x"></i>
+          <i className="fa-solid fa-spinner fa-spin fa-10x"></i>
         </div>
       )}
 
@@ -49,13 +49,25 @@ export default function Move() {
               {trendingTv.map((tv, i) => (
                 <div key={i} className="col-md-2 col-6">
                   <div className="tv">
-                    <Link to={`/details/${tv.id}/tv`}>
+                    <Link
+                      className="text-reset "
+                      to={`/details/${tv.id}/tv`}
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 0,
+                          left: 0,
+                          behavior: "smooth",
+                        });
+                      }}
+                    >
                       <img
                         className="w-100 rounded"
                         src={"https://image.tmdb.org/t/p/w500" + tv.poster_path}
                         alt=""
                       />
-                      <h3 className="h6 text-center mt-2 fw-bold">{tv.name}</h3>
+                      <h3 className="h6 text-center mt-2 text-reset  fw-bold">
+                        {tv.name}
+                      </h3>
                     </Link>
                   </div>
                 </div>

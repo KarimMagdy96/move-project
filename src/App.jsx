@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Tv from "./Components/Tv";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 import Notfound from "./Components/Notfound";
 import Footer from "./Components/Footer";
@@ -13,17 +16,17 @@ import Register from "./Components/Register";
 import Details from "./Components/Details";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
-import { func } from "joi";
-import CounterContextProvider from "./context/store";
+import MoviesContextProvider from "./context/store";
 function App() {
   const [userdata, setUserData] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setDarkMode] = React.useState(false);
+
+  const toggleDarkMode = (checked) => {
+    setDarkMode(checked);
+  };
+
   let navigator = useNavigate();
-
-  let mov;
-
-  const [tmoves, settmoves] = useState([]);
-  const [ttv, setttv] = useState([]);
-  const [tpeople, settpeople] = useState([]);
 
   async function gettrendings(mediaType, callback) {
     let { data } = await axios.get(
@@ -33,16 +36,11 @@ function App() {
   }
 
   useEffect(() => {
-    gettrendings("movie", settmoves);
-    gettrendings("tv", setttv);
-    gettrendings("person", settpeople);
-  }, []);
-
-  useEffect(() => {
     if (localStorage.getItem("token")) {
       saveUserData();
     }
-  }, []);
+    document.body.classList.toggle("dark", isOpen);
+  }, [isOpen]);
   function logOut() {
     setUserData(null);
     localStorage.removeItem("token");
@@ -65,14 +63,19 @@ function App() {
   }
 
   return (
-    //STARTING FROM FUNCTION PROTECT ROUTE TO CHEK IF ANY DATA ON LOCAL STORAGE ? GO TO PAGE ELSE GO TO LOGIN
-    // i use useeffect to prevint relode effect by calling ---save userdata function--- that alreeady been call in login component to save the respond token  in use state
-    //and send it to nav bar to cheeak if its full hide or show some labels
-    //last un is logout and i send it to nav to call it when logout and redirect to login
-
     <>
-      <CounterContextProvider>
+      <MoviesContextProvider>
+        <button className=" dark-btn" onClick={() => setIsOpen(!isOpen)}>
+          <DarkModeSwitch
+            className=" dark-nav"
+            style={{ marginBottom: "2rem" }}
+            checked={isDarkMode}
+            onChange={toggleDarkMode}
+            size={20}
+          />
+        </button>
         <Navbar userdata={userdata} logOut={logOut} />
+        {console.log(isOpen)}
         <Routes>
           <Route
             path=""
@@ -143,7 +146,7 @@ function App() {
           <Route path="*" element={<Notfound />} />
         </Routes>
         <Footer />
-      </CounterContextProvider>
+      </MoviesContextProvider>
     </>
   );
 }
