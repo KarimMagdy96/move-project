@@ -63,7 +63,7 @@ export default function Navbar({ userdata, logOut }) {
                     onChange={search}
                     type="search"
                     className="form-control w-100 px-5 text-reset    rounded-pill search "
-                    aria-label="Amount (to the nearest dollar)"
+                    aria-label="search"
                     placeholder="Search"
                   />
                 </div>
