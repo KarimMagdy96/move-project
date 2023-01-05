@@ -102,7 +102,7 @@ export default function Register() {
     // massage come with error? send it to error set state and check is there any error push it as alert in return.
     //to login
     <>
-      <div className=" w-75 mx-auto mt-3 vh-100 py-5">
+      <div className=" w-75 mx-auto mt-3  py-5">
         <h2 className="my-3 fw-bold">Register Now</h2>
 
         <form className="form-floating" onSubmit={sumbitForm}>

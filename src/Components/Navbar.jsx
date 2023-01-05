@@ -217,17 +217,26 @@ export default function Navbar({ userdata, logOut }) {
               </button>
             </>
           ) : (
-            <Link
-              to="register"
-              className="nav-link text-reset mt-5  logout btn fw-bold p-1 login me-2 btn-outline-danger rounded-pill    border border-3 border-danger"
-            >
-              <button
-                onClick={() => logOut()}
-                className="w-100 bg-transparent border-0 fw-bold text-rest"
+            <>
+              <Link
+                to="register"
+                className="nav-link text-reset mt-5 mb-3   logout btn fw-bold p-1 login me-2 btn-outline-danger rounded-pill    border border-3 border-danger"
               >
-                Register
-              </button>
-            </Link>
+                <button
+                  onClick={() => logOut()}
+                  className="w-100 bg-transparent border-0 fw-bold text-rest"
+                >
+                  Register
+                </button>
+              </Link>
+              <Link
+                className="nav-link  mt-2 mb-3 text-dark   logout btn fw-bold p-1 login me-2 btn-outline-danger rounded-pill     border border-3 border-danger"
+                aria-current="page"
+                to="login"
+              >
+                Login
+              </Link>
+            </>
           )}
         </div>
       ) : (
