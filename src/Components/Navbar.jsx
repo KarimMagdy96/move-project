@@ -178,41 +178,57 @@ export default function Navbar({ userdata, logOut }) {
               <i className="fa-solid text-reset  fa-xmark fs-5 "></i>
             </button>
           </div>
-          <ul className=" d-flex flex-column  w-100  p-0 justify-content-center align-items-center">
-            <li className=" w-100 text-center  p-2 fw-bold">
-              <Link
-                className="nav-link active text-reset "
-                aria-current="page"
-                to="home"
+          {userdata ? (
+            <>
+              <ul className=" d-flex flex-column  w-100  p-0 justify-content-center align-items-center">
+                <li className=" w-100 text-center  p-2 fw-bold">
+                  <Link
+                    className="nav-link active text-reset "
+                    aria-current="page"
+                    to="home"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="w-100 text-center  p-2 fw-bold">
+                  <Link
+                    className="nav-link active text-reset "
+                    aria-current="page"
+                    to="tv"
+                  >
+                    TV Shows
+                  </Link>
+                </li>
+                <li className="w-100 text-center  p-2 fw-bold">
+                  <Link
+                    className="nav-link active text-reset "
+                    aria-current="page"
+                    to="move"
+                  >
+                    Movies
+                  </Link>
+                </li>
+              </ul>
+              <button
+                onClick={() => logOut()}
+                className="nav-link text-reset  logout btn fw-bold p-1 login me-2 btn-outline-danger rounded-pill mx-2 mb-2 mb-lg-0 border border-3 border-danger"
               >
-                Home
-              </Link>
-            </li>
-            <li className="w-100 text-center  p-2 fw-bold">
-              <Link
-                className="nav-link active text-reset "
-                aria-current="page"
-                to="tv"
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link
+              to="register"
+              className="nav-link text-reset mt-5  logout btn fw-bold p-1 login me-2 btn-outline-danger rounded-pill    border border-3 border-danger"
+            >
+              <button
+                onClick={() => logOut()}
+                className="w-100 bg-transparent border-0 fw-bold text-rest"
               >
-                TV Shows
-              </Link>
-            </li>
-            <li className="w-100 text-center  p-2 fw-bold">
-              <Link
-                className="nav-link active text-reset "
-                aria-current="page"
-                to="move"
-              >
-                Movies
-              </Link>
-            </li>
-          </ul>
-          <button
-            onClick={() => logOut()}
-            className="nav-link text-reset  logout btn fw-bold p-1 login me-2 btn-outline-danger rounded-pill mx-2 mb-2 mb-lg-0 border border-3 border-danger"
-          >
-            Logout
-          </button>
+                Register
+              </button>
+            </Link>
+          )}
         </div>
       ) : (
         ""
