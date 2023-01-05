@@ -19,12 +19,6 @@ import axios from "axios";
 import MoviesContextProvider from "./context/store";
 function App() {
   const [userdata, setUserData] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDarkMode, setDarkMode] = React.useState(false);
-
-  const toggleDarkMode = (checked) => {
-    setDarkMode(checked);
-  };
 
   let navigator = useNavigate();
 
@@ -39,8 +33,7 @@ function App() {
     if (localStorage.getItem("token")) {
       saveUserData();
     }
-    document.body.classList.toggle("dark", isOpen);
-  }, [isOpen]);
+  }, []);
   function logOut() {
     setUserData(null);
     localStorage.removeItem("token");
@@ -65,17 +58,8 @@ function App() {
   return (
     <>
       <MoviesContextProvider>
-        <button className=" dark-btn" onClick={() => setIsOpen(!isOpen)}>
-          <DarkModeSwitch
-            className=" dark-nav"
-            style={{ marginBottom: "2rem" }}
-            checked={isDarkMode}
-            onChange={toggleDarkMode}
-            size={20}
-          />
-        </button>
         <Navbar userdata={userdata} logOut={logOut} />
-        {console.log(isOpen)}
+
         <Routes>
           <Route
             path=""

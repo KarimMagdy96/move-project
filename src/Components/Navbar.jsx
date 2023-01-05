@@ -1,10 +1,21 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { moveContext } from "../context/store";
 export default function Navbar({ userdata, logOut }) {
   let { search } = useContext(moveContext);
   const [close, setClose] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setDarkMode] = React.useState(false);
+  const toggleDarkMode = (checked) => {
+    setDarkMode(checked);
+  };
+  useEffect(() => {
+    document.body.classList.toggle("dark", isOpen);
+  }, [isOpen]);
   return (
     <>
       <nav className="navbar  shadow text-reset  navbar-expand-lg  rounded">
@@ -57,7 +68,7 @@ export default function Navbar({ userdata, logOut }) {
             </ul>
             {userdata ? (
               <>
-                <div className="input-group px-3 nav-input w-75 ">
+                <div className="input-group px-3 nav-input  w-50 ">
                   <input
                     //---------------------------****
                     onChange={search}
@@ -83,12 +94,28 @@ export default function Navbar({ userdata, logOut }) {
                       Logout
                     </div>
                   </div>
+                  <span className="d-flex align-items-center gap-2">
+                    <button
+                      className=" dark-btn"
+                      onClick={() => setIsOpen(!isOpen)}
+                    >
+                      <DarkModeSwitch
+                        className=" dark-nav "
+                        style={{ marginBottom: "2rem" }}
+                        moonColor="red"
+                        sunColor="red"
+                        checked={isDarkMode}
+                        onChange={toggleDarkMode}
+                        size={20}
+                      />
+                    </button>
 
-                  <button className="rounded-circle border-0 dropbtn login-name bg-light text-danger fw-bold">
-                    {localStorage.getItem("user")
-                      ? localStorage.getItem("user")[1].toUpperCase()
-                      : "K"}
-                  </button>
+                    <button className="rounded-circle border-0 dropbtn login-name bg-light text-danger fw-bold">
+                      {localStorage.getItem("user")
+                        ? localStorage.getItem("user")[1].toUpperCase()
+                        : "K"}
+                    </button>
+                  </span>
                 </li>
               ) : (
                 <>
@@ -125,11 +152,25 @@ export default function Navbar({ userdata, logOut }) {
       {close ? (
         <div className="collaps" onClick={() => setClose(!close)}>
           <div className="d-flex justify-content-between align-items-center">
-            <button className="rounded-circle border-0 dropbtn login-name bg-light text-danger fw-bold me-auto m-3">
-              {localStorage.getItem("user")
-                ? localStorage.getItem("user")[1].toUpperCase()
-                : "K"}
-            </button>
+            <span className="d-flex justify-content-center align-items-center gap-3 p-2">
+              <button className="rounded-circle border-0 dropbtn login-name bg-light text-danger fw-bold ">
+                {localStorage.getItem("user")
+                  ? localStorage.getItem("user")[1].toUpperCase()
+                  : "K"}
+              </button>
+              <button className=" dark-btn" onClick={() => setIsOpen(!isOpen)}>
+                <DarkModeSwitch
+                  className=" dark-nav "
+                  style={{ marginBottom: "2rem" }}
+                  moonColor="red"
+                  sunColor="red"
+                  checked={isDarkMode}
+                  onChange={toggleDarkMode}
+                  size={20}
+                />
+              </button>
+            </span>
+
             <button
               onClick={() => setClose(!close)}
               className=" bg-transparent border-0 m-3"

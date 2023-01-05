@@ -8,6 +8,7 @@ export default function MoviesContextProvider(props) {
   const [trendingTv, setTrendingTv] = useState([]);
   const [trendingPeople, setTrendingPeople] = useState([]);
   const [spinner, setSpinner] = useState(false);
+
   // get all data from api
   async function getTrending(mediaType, callback, pageLink, page) {
     setSpinner(true);
@@ -60,3 +61,31 @@ export default function MoviesContextProvider(props) {
     </moveContext.Provider>
   );
 }
+/**
+ * 1 creatfle called context inside of it make store.jsx
+ * 1- let hamda = creat conteact 0
+ * 2finction hamdaprovider(props){
+ *
+ * reuturn(
+ * <hama.provider **value={
+ * //all shed data i want to send to another components
+ * }>
+ *
+ * {props.children}
+ * </hama.provider>
+ *
+ * )
+ * }
+ * 3- app.jsx  import hamadaprovider the rap all pages inside
+ *
+ * 4- any component use conrtest
+ * let {disctracting any value in **value} = use contect(name of creat conteact in the store hamda)
+ *
+ *
+ *
+ *  */
+/*
+redux
+1-npm i reduxjs/toolkit reactderacs
+2-ui-component -> action->dispatcher->
+*/

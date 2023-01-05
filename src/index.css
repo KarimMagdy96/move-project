@@ -162,16 +162,12 @@ ul {
   color: white !important;
 }
 .dark-btn {
-  position: fixed;
-  top: 25%;
-  left: 1rem;
-  /* From https://css.glass */
-  background-color: #dc3545;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
+  color: red;
   display: flex;
   justify-content: center;
-
+  border: 0;
   border-radius: 50%;
 }
 .dark-nav {
