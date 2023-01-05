@@ -130,7 +130,7 @@ export default function Navbar({ userdata, logOut }) {
                   </li>
                   <li className="nav-item">
                     <Link
-                      className="nav-link text-reset  active fw-bold px-3 btn text-white btn-outline-danger rounded-pill mb-3 mb-lg-0"
+                      className="nav-link text-reset border border-3 login border-danger  fw-bold px-3 btn text-white btn-outline-danger rounded-pill mb-3 mb-lg-0"
                       aria-current="page"
                       to="register"
                     >
