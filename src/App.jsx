@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Tv from "./Components/Tv";
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
-
 import Notfound from "./Components/Notfound";
 import Footer from "./Components/Footer";
 import Home from "./Components/Home";
@@ -15,25 +11,12 @@ import Navbar from "./Components/Navbar";
 import Register from "./Components/Register";
 import Details from "./Components/Details";
 import jwtDecode from "jwt-decode";
-import axios from "axios";
 import MoviesContextProvider from "./context/store";
 function App() {
   const [userdata, setUserData] = useState(null);
 
   let navigator = useNavigate();
 
-  async function gettrendings(mediaType, callback) {
-    let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${mediaType}/day?api_key=fd3c31e2d7a54303dc08756b66824aef`
-    );
-    callback(data.results);
-  }
-
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      saveUserData();
-    }
-  }, []);
   function logOut() {
     setUserData(null);
     localStorage.removeItem("token");
