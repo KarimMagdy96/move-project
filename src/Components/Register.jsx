@@ -75,32 +75,6 @@ export default function Register() {
   //-----------------------------------------------------------------------
 
   return (
-    //1-starting from the form to register user data on each change will call
-    //get user data function
-    //get user data :
-    //1- takes deep copy of data from use-state
-    //that i already make it object with dummy data.
-    // 2- data will be saved by this function with simple approach i
-    // make the name is same as key
-    //and assign th value to it so each time i will press * on e.target it
-    //will save in deferent key
-
-    //3- then i will push this object to --user array at use state.
-
-    //------------------------------------------------------------------
-
-    // 2- on submit
-
-    //i will call submit-Form fun that will:
-
-    //1-set is loading to true thats simple way to make loading animation while waiting for respond from backend
-    //2- call --validateRegisterForm fun and save return to validator var
-    //in validation function i use ---joi-- library to validate it just make dummy obj with value of validate formula
-    //and return validate method with user object and abort early to get full errors
-    //3-check is there is any errors send it to Error list use state the map on the list and display errors on alert
-    //else send data to api using --Axios-- and check for response if success i will use use navigate to login component
-    // massage come with error? send it to error set state and check is there any error push it as alert in return.
-    //to login
     <>
       <div className=" w-75 mx-auto mt-3  py-5">
         <h2 className="my-3 fw-bold">Register Now</h2>
